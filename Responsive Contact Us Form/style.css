@@ -1,0 +1,195 @@
+/* Google Font CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'); 
+/* Import font Poppins từ Google Fonts */
+
+/* Định nghĩa biến CSS để dễ dàng tái sử dụng màu sắc */
+:root {
+    --body: #c8e8e9; /* Màu nền chính của trang */
+    --address-text: #afafb6; /* Màu chữ phụ, dùng trong phần thông tin địa chỉ */
+    --blue: #3e2093; /* Màu xanh chủ đạo */
+    --message-text: #494950; /* Màu chữ trong tin nhắn */
+    --btn-hover: #5029bc; /* Màu nút khi di chuột qua */
+}
+
+/* Reset toàn bộ margin và padding mặc định của trình duyệt */
+* {
+    margin: 0; /* Xóa khoảng cách ngoài */
+    padding: 0; /* Xóa khoảng cách trong */
+    box-sizing: border-box; /* Đảm bảo padding và border không ảnh hưởng đến kích thước tổng */
+    font-family: "Poppins", sans-serif; /* Sử dụng font chữ đã import */
+}
+
+/* Thiết lập cho body */
+body {
+    min-height: 100vh; /* Chiều cao tối thiểu bằng chiều cao khung nhìn */
+    width: 100%; /* Chiều rộng chiếm toàn bộ */
+    background: var(--body); /* Màu nền từ biến --body */
+    display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Container chính chứa toàn bộ nội dung */
+.container {
+    width: 85%; /* Chiều rộng chiếm 85% khung chứa */
+    background: #fff; /* Màu nền trắng */
+    border-radius: 6px; /* Bo tròn góc container */
+    padding: 30px 60px 40px 40px; /* Khoảng cách trong (trên, phải, dưới, trái) */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng với màu đen, độ mờ 20% */
+}
+
+/* Bố trí nội dung bên trong container */
+.container .content {
+    display: flex; /* Sử dụng flexbox để sắp xếp các phần tử con */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    justify-content: space-between; /* Dãn cách đều giữa các phần tử */
+}
+
+/* Phần bên trái container */
+.container .content .left-side {
+    width: 25%; /* Chiếm 25% chiều rộng */
+    height: 100%; /* Chiều cao đầy đủ */
+    display: flex; /* Dùng flexbox để sắp xếp con */
+    flex-direction: column; /* Sắp xếp nội dung theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    margin-top: 15px; /* Khoảng cách phía trên */
+    position: relative; /* Định vị tương đối để hỗ trợ pseudo-element (::before) */
+}
+
+/* Đường kẻ bên trái */
+.content .left-side::before {
+    content: ''; /* Tạo nội dung ảo */
+    position: absolute; /* Định vị tuyệt đối trong .left-side */
+    height: 70%; /* Chiều cao bằng 70% chiều cao của cha */
+    width: 2px; /* Chiều rộng đường kẻ */
+    right: -30px; /* Đặt cách mép phải 30px */
+    top: 50%; /* Đặt ở giữa chiều cao cha */
+    transform: translateY(-50%); /* Dịch chuyển lên 50% để căn giữa */
+    background: var(--address-text); /* Màu đường kẻ */
+}
+
+/* Chi tiết trong phần bên trái */
+.content .left-side .details {
+    margin: 14px; /* Khoảng cách ngoài giữa các phần tử con */
+    text-align: center; /* Canh giữa nội dung text */
+}
+
+/* Icon trong phần bên trái */
+.content .left-side .details i {
+    font-size: 30px; /* Kích thước icon */
+    color: var(--blue); /* Màu icon */
+    margin-bottom: 10px; /* Khoảng cách dưới */
+}
+
+/* Tiêu đề nhỏ trong phần bên trái */
+.content .left-side .details .topic {
+    font-size: 18px; /* Kích thước chữ */
+    font-weight: 500; /* Độ dày chữ trung bình */
+}
+
+/* Mô tả ngắn trong phần bên trái */
+.content .left-side .details .text-one,/* Các thành phần có thuộc tính trùng lặp được áp dụng thuộc tính  */
+.content .left-side .details .text-two {
+    font-size: 14px; /* Kích thước chữ */
+    color: var(--address-text); /* Màu chữ từ biến --address-text */
+}
+
+/* Phần bên phải container */
+.container .content .right-side {
+    width: 75%; /* Chiếm 75% chiều rộng */
+    margin-left: 75px; /* Khoảng cách bên trái */
+}
+
+/* Tiêu đề trong phần bên phải */
+.content .right-side .topic-text {
+    font-size: 23px; /* Kích thước chữ */
+    font-weight: 600; /* Độ dày chữ đậm */
+    color: var(--blue); /* Màu chủ đạo */
+}
+
+/* Ô nhập liệu */
+.right-side .input-box {
+    height: 50px; /* Chiều cao khối */
+    width: 100%; /* Chiều rộng chiếm toàn bộ */
+    margin: 12px 0; /* Khoảng cách trên và dưới */
+}
+
+/* Styling chung cho input và textarea */
+.right-side .input-box input,
+.right-side .input-box textarea {
+    height: 100%; /* Chiều cao khớp với cha */
+    width: 100%; /* Chiều rộng khớp với cha */
+    border: none; /* Xóa viền mặc định */
+    font-size: 16px; /* Kích thước chữ */
+    border-radius: 6px; /* Bo góc */
+    background: #f0f1f8; /* Màu nền nhạt */
+    padding: 0 18px; /* Khoảng cách nội dung với viền */
+    resize: none; /* Không cho phép thay đổi kích thước textarea */
+}
+
+/* Tin nhắn (textarea) */
+.right-side .message-box {
+    min-height: 110px; /* Chiều cao tối thiểu */
+    margin-top: 7px; /* Khoảng cách trên */
+}
+
+/* Nút bấm */
+.right-side .button {
+    display: inline-block; /* Hiển thị khối nội dòng */
+    margin-top: 12px; /* Khoảng cách trên */
+}
+
+.right-side .button input[type="button"] {
+    color: #fff; /* Màu chữ trắng */
+    font-size: 18px; /* Kích thước chữ */
+    border-radius: 6px; /* Bo góc */
+    border: none; /* Xóa viền mặc định */
+    padding: 8px 15px; /* Khoảng cách trong (trên dưới, trái phải) */
+    background-color: var(--blue); /* Màu nền nút */
+    cursor: pointer; /* Con trỏ chuột hiển thị dạng bàn tay */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt */
+}
+
+/* Hiệu ứng hover cho nút */
+.button input[type="button"]:hover {
+    background: var(--btn-hover); /* Đổi màu nền khi di chuột */
+}
+
+/* Thiết kế responsive cho màn hình dưới 952px */
+/* @media là giúp bạn thay đổi CSS dựa trên kích thước màn hình hoặc thiết bị.*/
+@media (max-width: 952px) {
+    .container {
+        width: 90%; /* Mở rộng chiều rộng */
+        padding: 30px 35px 40px 35px; /* Điều chỉnh padding */
+    }
+}
+
+/* Thiết kế responsive cho màn hình dưới 825px */
+@media (max-width: 825px) {
+    .container {
+        margin: 40px; /* Thêm khoảng cách bên ngoài */
+        height: 100%; /* Chiều cao chiếm toàn màn hình */
+    }
+
+    .container .content {
+        flex-direction: column-reverse; /* Đảo vị trí các khối */
+    }
+
+    .container .content .left-side {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        flex-direction: row; /* Sắp xếp ngang */
+        margin-top: 40px; /* Khoảng cách trên */
+        justify-content: center; /* Căn giữa nội dung */
+        flex-wrap: wrap; /* Xuống dòng nếu không đủ chỗ */
+    }
+
+    .container .content .left-side::before {
+        display: none; /* Ẩn đường kẻ */
+    }
+
+    .container .content .right-side {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-left: 0; /* Xóa khoảng cách trái */
+    }
+}

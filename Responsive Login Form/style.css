@@ -1,0 +1,122 @@
+/* Importing Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0; /* Xóa margin mặc định cho tất cả các phần tử */
+    padding: 0; /* Xóa padding mặc định cho tất cả các phần tử */
+    box-sizing: border-box; /* Bao gồm border và padding vào trong kích thước của phần tử */
+    font-family: 'Poppins', sans-serif; /* Sử dụng font Poppins cho tất cả các phần tử */
+}
+
+body {
+    background: #1abc9c; /* Màu nền của trang */
+    overflow: hidden; /* Ẩn các phần tử tràn ra ngoài */
+}
+
+.container {
+    max-width: 550px;  /* Tăng chiều rộng tối đa của container */
+    padding: 0 30px;   /* Tăng khoảng cách trái và phải của container */
+    margin: 150px auto; /* Tạo khoảng cách 150px ở trên và dưới, căn giữa container */
+}
+
+.wrapprer {
+    width: 100%; /* Chiều rộng đầy đủ của phần tử */
+    height: 450px;  /* Tăng chiều cao của form */
+    background: #fff; /* Màu nền trắng cho form */
+    border-radius: 5px; /* Bo tròn các góc của form */
+}
+
+.wrapprer .title {
+    line-height: 100px;  /* Tăng chiều cao của tiêu đề để căn giữa chữ */
+    background: #3498db; /* Màu nền của tiêu đề */
+    padding-left: 30px;  /* Thêm khoảng cách trái cho tiêu đề */
+    text-align: center;  /* Căn giữa tiêu đề */
+    border-radius: 5px 5px 0 0; /* Bo tròn góc trên cho tiêu đề */
+    font-size: 30px;  /* Tăng kích thước chữ tiêu đề */
+    color: #fff; /* Màu chữ trắng */
+    font-weight: 600; /* Đậm chữ tiêu đề */
+}
+
+.wrapprer form {
+    padding: 40px 30px 30px 30px;  /* Tăng padding (khoảng cách bên trong) cho form */
+}
+
+.wrapprer form .row {
+    height: 50px;  /* Tăng chiều cao của các input */
+    margin-bottom: 20px;  /* Tăng khoảng cách giữa các input */
+    position: relative; /* Để có thể đặt icon vào vị trí tuyệt đối */
+}
+
+.wrapprer form .row input {
+    height: 100%; /* Chiều cao 100% của phần tử .row */
+    width: 100%; /* Chiều rộng đầy đủ */
+    outline: none; /* Xóa viền mặc định khi focus vào input */
+    padding-left: 70px;  /* Thêm khoảng cách trái cho chữ trong input */
+    border-radius: 5px;  /* Bo tròn góc của input */
+    border: 1px solid lightgray; /* Viền mờ cho input */
+    font-size: 18px;  /* Tăng kích thước chữ của input */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà khi thay đổi thuộc tính */
+}
+
+form .row input:focus {
+    border-color: #16a085; /* Màu viền khi input được focus */
+    box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25); /* Tạo bóng cho input khi focus */
+}
+
+.wrapprer form .row i {
+    position: absolute; /* Đặt icon ở vị trí tuyệt đối trong .row */
+    width: 50px;  /* Tăng chiều rộng của icon */
+    height: 100%;  /* Chiều cao icon bằng chiều cao của input */
+    color: #fff; /* Màu icon trắng */
+    font-size: 20px;  /* Tăng kích thước icon */
+    background: #16a085; /* Màu nền của icon */
+    border: 1px solid #16a085; /* Viền icon */
+    border-radius: 5px 0 0 5px; /* Bo tròn các góc trái của icon */
+    display: flex; /* Dùng flex để căn giữa icon */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.wrapprer form .pass {
+    margin: -10px 0 25px 0;  /* Tăng khoảng cách giữa các phần tử liên quan đến mật khẩu */
+}
+
+.wrapprer form .pass a {
+    color: #16a085; /* Màu chữ của liên kết */
+    text-decoration: none; /* Bỏ gạch chân cho liên kết */
+    font-size: 18px;  /* Tăng kích thước chữ của liên kết */
+}
+
+.wrapprer form .pass a:hover {
+    text-decoration: underline; /* Hiệu ứng gạch chân khi hover vào liên kết */
+}
+
+.wrapprer form .button input {
+    color: #fff; /* Màu chữ của nút */
+    font-size: 22px;  /* Tăng kích thước chữ của nút */
+    font-weight: 500; /* Đậm chữ của nút */
+    padding-left: 0px; /* Xóa padding trái của nút */
+    background: #1abc9c; /* Màu nền của nút */
+    border: 1px solid #12876f; /* Viền nút */
+    cursor: pointer; /* Thay đổi con trỏ khi hover vào nút */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà khi hover */
+}
+
+form .button input:hover {
+    background: #12876f; /* Thay đổi màu nền khi hover vào nút */
+}
+
+.wrapprer form .signup-link {
+    text-align: center; /* Căn giữa nội dung */
+    margin-top: 25px;  /* Tăng khoảng cách phía trên liên kết đăng ký */
+    font-size: 18px;  /* Tăng kích thước chữ của liên kết đăng ký */
+}
+
+.wrapprer form .signup-link a {
+    color: #16a085; /* Màu chữ của liên kết đăng ký */
+    text-decoration: none; /* Bỏ gạch chân cho liên kết */
+}
+
+form .signup-link a:hover {
+    text-decoration: underline; /* Hiệu ứng gạch chân khi hover vào liên kết đăng ký */
+}

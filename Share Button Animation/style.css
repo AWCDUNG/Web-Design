@@ -1,0 +1,73 @@
+* { 
+    margin: 0; /* Loại bỏ toàn bộ khoảng cách mặc định của các phần tử */
+    padding: 0; /* Xóa khoảng cách bên trong mặc định của các phần tử */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm tăng kích thước phần tử */
+    font-family: 'Poppins', sans-serif; /* Áp dụng font chữ Poppins từ Google Fonts */
+  }
+  
+  html, body { 
+    display: grid; /* Dùng lưới để căn chỉnh nội dung */
+    height: 100vh; /* Chiều cao của khung là 100% chiều cao màn hình */
+    place-items: center; /* Căn giữa nội dung cả theo chiều ngang và dọc */
+    background: #34495e; /* Màu nền tối */
+  }
+  
+  .main_div {
+    position: relative; /* Tạo tham chiếu vị trí cho các phần tử con (absolute) */
+    height: 65px; /* Chiều cao khối chính */
+    width: 250px; /* Chiều rộng khối chính */
+    background: #fff; /* Màu nền trắng */
+    border-radius: 4px; /* Làm bo tròn các góc của khối */
+    cursor: pointer; /* Khi hover, chuột đổi thành biểu tượng "tay chỉ" */
+    box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.35); /* Đổ bóng nhẹ cho khối chính */
+    overflow: hidden; /* Ẩn nội dung hoặc hiệu ứng tràn ra khỏi khối */
+  }
+  
+  .main_div::before {
+    content: 'Share'; /* Hiển thị chữ "share" trong khối chính */
+    position: absolute; /* Định vị nội dung chữ dựa trên khối chính */
+    top: 0; /* Canh trên cùng */
+    left: 0; /* Canh trái */
+    height: 100%; /* Chiều cao chiếm toàn bộ khối chính */
+    width: 100%; /* Chiều rộng chiếm toàn bộ khối chính */
+    border-radius: 4px; /* Giữ góc bo tròn khớp với khối chính */
+    color: #34495e; /* Màu chữ tối */
+    font-size: 27px; /* Kích thước chữ lớn */
+    font-weight: 500; /* Độ dày chữ vừa */
+    display: flex; /* Dùng flexbox để căn giữa chữ */
+    align-items: center; /* Căn giữa theo trục dọc */
+    justify-content: center; /* Căn giữa theo trục ngang */
+    transition: all 0.5s ease; /* Tạo hiệu ứng mượt mà khi hover */
+  }
+  
+  .main_div:hover::before {
+    left: -250px; /* Khi hover, chữ "share" trượt hoàn toàn sang trái */
+  }
+  
+  .main_div .social_media {
+    position: absolute; /* Định vị phần tử mạng xã hội dựa trên khối chính */
+    top: 0; /* Canh trên cùng */
+    right: -250px; /* Đặt khối mạng xã hội nằm ngoài bên phải khối chính */
+    height: 100%; /* Chiều cao khớp với khối chính */
+    width: 100%; /* Chiều rộng khớp với khối chính */
+    border-radius: 4px; /* Làm bo tròn để khớp khối chính */
+    display: flex; /* Dùng flexbox để bố trí biểu tượng mạng xã hội */
+    align-items: center; /* Căn giữa biểu tượng theo trục dọc */
+    justify-content: space-around; /* Dàn đều khoảng cách giữa các biểu tượng */
+    transition: all 0.4s ease-in-out; /* Hiệu ứng mượt mà khi khối trượt */
+  }
+  
+  .main_div:hover .social_media {
+    right: 0; /* Khi hover, khối mạng xã hội trượt vào trong */
+  }
+  
+  .social_media i {
+    font-size: 22px; /* Kích thước biểu tượng mạng xã hội */
+    color: #34495e; /* Màu biểu tượng giống màu nền */
+    transition: all 0.3s linear; /* Hiệu ứng mượt khi hover biểu tượng */
+  }
+  
+  .social_media i:hover {
+    transform: scale(1.1); /* Phóng to nhẹ biểu tượng khi hover */
+  }
+  

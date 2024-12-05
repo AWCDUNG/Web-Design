@@ -1,0 +1,140 @@
+/* Import font Poppins từ Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+    margin: 0; /* Xóa khoảng cách mặc định của tất cả các phần tử. */
+    padding: 0; /* Xóa padding mặc định của tất cả các phần tử. */
+    box-sizing: border-box; /* Đảm bảo padding và border được tính trong kích thước phần tử. */
+    font-family: 'Poppins', sans-serif; /* Áp dụng font Poppins cho toàn bộ trang. */
+}
+html,body{
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    place-items: center;
+    background: linear-gradient(to right,#9900ad 0%,#ff0080 100%);
+}
+.container{
+    background: #ffffff;
+    max-width: 420px;
+    max-height: 520px;/* ********** */
+    width: 100%;
+    padding: 25px 30px;
+    box-shadow: 0 10px 10px rgba(0,0 ,0, 0.2);
+}
+.container form .title{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0 10px 0;
+    position: relative;
+}
+.container form .title::before{
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 35px;
+    bottom: 3px;
+    left: 0;
+    border-radius: 5px;
+    background: linear-gradient(to right,#9900ad 0%,#ff0080 100%);
+}
+.container form .input-box{
+    width: 100%;
+    height: 45px;
+    margin-top: 25px;
+    position: relative;
+}
+.container form .input-box input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 16px;
+    border: none;
+}
+.container form .underline:before{
+    position: absolute;
+    content:'' ;
+    height: 2px;
+    width: 100%;
+    background: #ccc;
+    left: 0;
+    bottom: 0;
+}
+.container form .underline::after{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to right,#9900ad 0%,#ff0080 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.3s ease;
+}
+.container form .input-box input:focus ~ .underline:after,
+.container form .input-box input:valid ~ .underline:after{/* chọn phần tử input trong form sau đó tác động lên phần tử được chọn sau dấu ~*/
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.container form .button{
+    margin: 40px 0 20px 0;
+}
+.container form .input-box input[type ="submit"]{
+    font-size: 17px;
+    color: #fff;
+    border-radius: 10px;
+    background: linear-gradient(to right,#9900ad 0%,#ff0080 100%);
+    transition: all 0.4s ease;
+
+}
+.container form .input-box input[type ="submit"]:hover{
+    letter-spacing: 2px;
+    background: linear-gradient(to left,#9900ad 0%,#ff0080 100%);
+}
+.container .option{
+    font-size: 15px;
+    font-weight: 100;
+    text-align: center;
+}
+.container .twitter a,
+.container .facebook a{
+    display: block;
+    width: 100%;
+    height: 45px;
+    font-size: 15px;
+    text-decoration: none;
+    padding-left: 20px;
+    color: #fff;
+    line-height: 45px;
+    border-radius: 5px;
+}
+.container .twitter a{
+    margin: 20px 0 15px 0;
+    background: linear-gradient(to left,#00acee 0%,#1abeff 100%);
+}
+.container .twitter a:hover{
+    
+    background: linear-gradient(to right,#00acee 0%,#1abeff 100%);
+}
+.container .facebook a{
+    margin: 20px 0 50px 0;
+    background: linear-gradient(to left,#3b5998 0%,#476bb8 100%);
+}
+.container .facebook a:hover{
+    background: linear-gradient(to right,#3b5998 0%,#476bb8 100%);
+}
+.container .twitter i,
+.container .facebook i{
+    padding-right: 15px;
+    font-size: 20px;
+
+}
+
+
+/*:before chèn nội dung ký tự ..... ko cần can thiệp html
+::focus : hiệu ứng suất hiện khi nhấp chuột vào thuộc tính input
+:: before Nội dung chèn thêm xuất hiện trước nội dung chính thường là ký hiệu nội dung.
+:: after: Nội dung chèn thêm xuất hiện trước nội dung chính thường là ký hiệu nội dung.
+:: valid : khi input điền đúng định dạng thì hiệu ứng valid sẽ xuất hiện
+~ (General Sibling Combinator) áp dụng style cho tất cả các phần tử cùng cấp với phần tử được chỉ định, miễn là chúng xuất hiện sau phần tử đó.
+*/

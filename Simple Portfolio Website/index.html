@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="">
+                </div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Latest</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Search here...">
+                <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="text-content">
+                <div class="text">Hello, It's Me</div>
+                <div class="name">Nguyen Van Dung</div>
+                <div class="job">
+                    <span>And, I'm a</span>
+                    <div class="typing-text">
+                        <span>Frontend Developer.</span>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button>About Me</button>
+                    <button>About Me</button>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <img src="girl.png" alt="">
+        </div>
+        <div class="media-icon">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+</body>
+
+</html>
+<!-- 
+/* ------------------------------- */
+/* Các kiểu Transform trong CSS */
+/* ------------------------------- */
+
+/* 1. Dịch chuyển phần tử */
+  /* Dịch chuyển phần tử theo trục X và Y */
+  transform: translate(50px, 100px); /* Dịch chuyển 50px sang phải, 100px xuống dưới */
+  transform: translateX(50px); /* Dịch chuyển 50px sang phải */
+  transform: translateY(-50px); /* Dịch chuyển 50px lên trên */
+
+/* 2. Phóng to/Thu nhỏ phần tử */
+  /* Thay đổi kích thước phần tử theo tỷ lệ */
+  transform: scale(1.5, 1.5); /* Phóng to 1.5 lần theo cả hai trục */
+  transform: scaleX(2); /* Phóng to 2 lần theo chiều ngang */
+  transform: scaleY(0.5); /* Thu nhỏ 50% theo chiều dọc */
+
+/* 3. Xoay phần tử */
+  /* Xoay phần tử theo góc chỉ định (đơn vị: độ) */
+  transform: rotate(45deg); /* Xoay phần tử 45 độ theo chiều kim đồng hồ */
+  transform: rotate(-90deg); /* Xoay phần tử 90 độ ngược chiều kim đồng hồ */
+
+/* 4. Nghiêng phần tử */
+  /* Nghiêng phần tử theo trục X hoặc Y */
+  transform: skew(30deg, 20deg); /* Nghiêng 30 độ theo trục X và 20 độ theo trục Y */
+  transform: skewX(45deg); /* Nghiêng 45 độ theo trục X */
+  transform: skewY(-30deg); /* Nghiêng -30 độ theo trục Y */
+
+/* 5. Phóng to và di chuyển cùng lúc */
+  /* Thực hiện cả scale và translate đồng thời */
+  transform: translate(50px, 100px) scale(1.5); /* Dịch chuyển và phóng to cùng lúc */
+
+/* 6. Kết hợp nhiều hiệu ứng */
+  /* Kết hợp nhiều hiệu ứng transform cùng lúc */
+  transform: rotate(45deg) translateX(100px) scaleY(0.8); /* Xoay, dịch chuyển và thu nhỏ */
+
+/* 7. Tạo hiệu ứng 3D với `perspective` */
+  /* Tạo hiệu ứng 3D cho phần tử */
+  transform: perspective(500px) rotateY(45deg); /* Xoay theo trục Y trong không gian 3D */
+
+/* 8. Tạo hiệu ứng phóng to 3D */
+  /* Phóng to phần tử trong không gian 3D */
+  transform: scale3d(1.2, 1.2, 1.2); /* Phóng to 1.2 lần theo cả 3 trục */
+
+/* 9. Biến dạng 3D (với `rotateX`, `rotateY`, `rotateZ`) */
+  /* Xoay phần tử trong không gian 3D */
+  transform: rotateX(30deg); /* Xoay phần tử theo trục X trong không gian 3D */
+  transform: rotateY(45deg); /* Xoay phần tử theo trục Y trong không gian 3D */
+  transform: rotateZ(60deg); /* Xoay phần tử theo trục Z trong không gian 3D */
+
+/* 10. Biến dạng với `matrix` */
+  /* Sử dụng ma trận để thực hiện các phép biến đổi tổng hợp */
+  transform: matrix(1, 0, 0, 1, 0, 0); /* Ma trận đơn giản (kết hợp translate, scale, rotate) */
+
+/* ------------------------------- */
+-->
+<!--
+/* Tao mot flex container */
+display: flex; /* Block-level flex container */
+display: inline-flex; /* Inline-level flex container */
+
+/* Chinh huong cua cac item trong flex container */
+flex-direction: row; /* Hang ngang (mac dinh) */
+flex-direction: column; /* Cot doc */
+
+/* Chinh wrap cua cac item */
+flex-wrap: nowrap; /* Khong xuong dong (mac dinh) */
+flex-wrap: wrap; /* Xuong dong khi het cho */
+flex-wrap: wrap-reverse; /* Xuong dong nguoc chieu */
+
+/* Dat kich thuoc co ban cua flex item */
+flex-basis: 100px; /* Kich thuoc ban dau cua item la 100px */
+
+/* Can chinh cac item theo chieu ngang */
+justify-content: flex-start; /* Can trai (mac dinh) */
+justify-content: flex-end; /* Can phai */
+justify-content: center; /* Can giua */
+justify-content: space-between; /* Khoang cach deu giua cac item */
+justify-content: space-around; /* Khoang cach deu xung quanh cac item */
+
+/* Can chinh mot item rieng le theo chieu ngang (trong grid hoac flex item) */
+justify-self: flex-start; /* Can trai */
+justify-self: flex-end; /* Can phai */
+justify-self: center; /* Can giua */
+
+/* Can chinh cac dong trong flex container */
+align-content: flex-start; /* Can dong len tren */
+align-content: flex-end; /* Can dong xuong duoi */
+align-content: center; /* Can dong o giua */
+
+/* Can chinh mot item rieng le theo chieu doc */
+align-self: flex-start; /* Can len tren */
+align-self: flex-end; /* Can xuong duoi */
+align-self: center; /* Can giua */
+
+/* Xac dinh ty le tang truong cua item */
+flex-grow: 1; /* Item nay chiem 1 phan cua khoang trong con lai */
+
+/* Xac dinh ty le thu nho cua item */
+flex-shrink: 0; /* Item nay se khong bi thu nho */
+
+/* Thiet lap tat ca flex-grow, flex-shrink va flex-basis */
+flex: 1; /* Tuong duong voi flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
+
+/* Thay doi thu tu cua item */
+order: 2; /* Item nay se xuat hien thu hai (thu tu mac dinh la 0) */
+-->

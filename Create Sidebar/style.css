@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Đặt các thuộc tính chung cho tất cả phần tử */
+* {
+    margin: 0; /* Xóa khoảng cách mặc định của các phần tử */
+    padding: 0; /* Xóa padding mặc định của các phần tử */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước phần tử */
+    font-family: 'Poppins', sans-serif; /* Đặt font chữ Poppins cho toàn trang */
+}
+
+.main_box {
+    position: relative; /* Định vị tương đối để làm tham chiếu cho các phần tử con */
+    background: url(side.jpeg) right no-repeat; /* Đặt hình nền ở bên phải và không lặp lại */
+    height: 100vh; /* Chiều cao bằng với chiều cao của cửa sổ trình duyệt */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của màn hình */
+    background-size: cover; /* Điều chỉnh kích thước hình nền để phủ đầy khu vực */
+}
+
+.main_box .sidebar_menu {
+    position: fixed; /* Định vị cố định để sidebar luôn hiển thị khi cuộn trang */
+    height: 100vh; /* Chiều cao của sidebar bằng với chiều cao của cửa sổ trình duyệt */
+    width: 280px; /* Chiều rộng của sidebar */
+    left: -280px; /* Đẩy sidebar ra ngoài màn hình bên trái */
+    background: rgba(255,255,255,0.1); /* Màu nền trong suốt 10% */
+    box-shadow: 0 0 6px rgba(255,255,255,0.5); /* Đổ bóng nhẹ xung quanh sidebar */
+}
+
+.sidebar_menu .logo {
+    position: absolute; /* Định vị tuyệt đối để đặt logo trong sidebar */
+    width: 100%; /* Logo chiếm toàn bộ chiều ngang của sidebar */
+    height: 60px; /* Chiều cao của khu vực logo */
+    box-shadow: rgba(255,255,255,0.5); /* Đổ bóng nhẹ cho logo */
+}
+
+.sidebar_menu .logo a {
+    color: #fff; /* Màu chữ của logo là màu trắng */
+    font-size: 25px; /* Kích thước chữ cho logo */
+    font-weight: 500; /* Độ đậm của chữ logo */
+    position: absolute; /* Định vị tuyệt đối để canh lề trái cho logo */
+    left: 50px; /* Đặt cách lề trái của sidebar 50px */
+    line-height: 60px; /* Căn giữa theo chiều dọc cho logo */
+    text-decoration: none; /* Bỏ gạch chân cho logo */
+}
+
+.sidebar_menu .menu {
+    position: absolute; /* Định vị tuyệt đối để đặt menu bên dưới logo */
+    top: 80px; /* Đặt menu cách cạnh trên của sidebar 80px */
+    width: 100%; /* Menu chiếm toàn bộ chiều ngang của sidebar */
+}
+
+.sidebar_menu .menu li {
+    margin-top: 6px; /* Khoảng cách giữa các mục menu */
+    padding: 14px 20px; /* Khoảng cách bên trong mục menu */
+    transition: all 0.3s linear; /* Hiệu ứng chuyển động mượt khi hover */
+}
+
+.sidebar_menu .menu i {
+    color: #fff; /* Màu biểu tượng menu là màu trắng */
+    font-size: 20px; /* Kích thước biểu tượng menu */
+    padding-right: 8px; /* Khoảng cách giữa biểu tượng và chữ */
+}
+
+.sidebar_menu .menu a {
+    color: #fff; /* Màu chữ của menu là màu trắng */
+    font-size: 20px; /* Kích thước chữ của menu */
+    text-decoration: none; /* Bỏ gạch chân cho menu */
+}
+
+.sidebar_menu .menu li:hover {
+    border-left: 1px solid #fff; /* Đường viền bên trái khi hover */
+    box-shadow: 0 0 4px rgba(255,255,255,0.9); /* Đổ bóng cho mục menu khi hover */
+}
+
+.sidebar_menu .social_media {
+    position: absolute; /* Định vị tuyệt đối để đặt các biểu tượng mạng xã hội */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    bottom: 20px; /* Cách đáy của sidebar 20px */
+    transform: translateX(-50%); /* Điều chỉnh để căn giữa thực tế */
+    cursor: pointer; /* Đổi con trỏ thành bàn tay khi hover */
+}
+
+.social_media i {
+    padding: 0 5px; /* Khoảng cách giữa các biểu tượng mạng xã hội */
+    color: #fff; /* Màu biểu tượng là màu trắng */
+    opacity: 0.6; /* Độ mờ của biểu tượng ban đầu */
+    font-size: 20px; /* Kích thước biểu tượng */
+    transition: all 0.2s linear; /* Hiệu ứng mượt khi hover */
+}
+
+.social_media i:hover {
+    opacity: 1; /* Hiển thị rõ khi hover */
+    transition: all 0.2s linear; /* Hiệu ứng mượt */
+    transform: scale(1); /* Giữ kích thước khi hover */
+}
+
+#check {
+    display: none; /* Ẩn checkbox */
+}
+
+.main_box .btn_one i {
+    color: #fff; /* Màu của biểu tượng mở sidebar là màu trắng */
+    font-size: 30px; /* Kích thước biểu tượng mở sidebar */
+    font-weight: 700; /* Độ đậm của biểu tượng */
+    position: absolute; /* Định vị tuyệt đối để căn lề trái */
+    left: 16px; /* Cách lề trái 16px */
+    line-height: 60px; /* Căn giữa theo chiều dọc */
+    cursor: pointer; /* Đổi con trỏ thành bàn tay khi hover */
+    opacity: 1; /* Độ trong suốt của biểu tượng */
+    transition: all 0.3s linear; /* Hiệu ứng chuyển động mượt khi hover */
+}
+
+.sidebar_menu .btn_two i {
+    font-size: 25px; /* Kích thước biểu tượng đóng sidebar */
+    line-height: 60px; /* Căn giữa theo chiều dọc */
+    position: absolute; /* Định vị tuyệt đối để căn lề trái */
+    left: 240px; /* Đặt gần cạnh phải của sidebar */
+    cursor: pointer; /* Đổi con trỏ thành bàn tay khi hover */
+    opacity: 0; /* Ẩn biểu tượng đóng sidebar */
+    transition: all 0.3s linear; /* Hiệu ứng mượt khi hover */
+}
+
+.btn_one i:hover {
+    font-size: 29px; /* Thu nhỏ biểu tượng mở khi hover */
+}
+
+.btn_one i:hover {
+    font-size: 24px; /* Thu nhỏ biểu tượng đóng khi hover */
+}
+
+#check:checked ~ .sidebar_menu {
+    left: 0px; /* Di chuyển sidebar vào màn hình khi checkbox được chọn */
+}
+
+#check:checked ~ .btn_one i {
+    opacity: 0; /* Ẩn biểu tượng mở sidebar khi checkbox được chọn */
+}
+
+#check:checked ~ .sidebar_menu .btn_two i {
+    opacity: 1; /* Hiển thị biểu tượng đóng sidebar khi checkbox được chọn */
+}

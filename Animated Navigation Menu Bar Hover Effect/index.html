@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Image Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Container chính của giao diện -->
+    <div class="container">
+        <!-- Các radio button, mỗi radio có một id và name giống nhau -->
+        <input type="radio" name="slider" id="home" checked> <!-- Radio cho Home, mặc định checked -->
+        <input type="radio" name="slider" id="blog"> <!-- Radio cho Blog -->
+        <input type="radio" name="slider" id="code"> <!-- Radio cho Code -->
+        <input type="radio" name="slider" id="help"> <!-- Radio cho Help -->
+        <input type="radio" name="slider" id="about"> <!-- Radio cho About -->
+        
+        <!-- Thanh điều hướng -->
+        <nav>
+            <!-- Thẻ slider để tạo hiệu ứng chuyển động khi radio được chọn -->
+            <div class="slider"></div>
+            
+            <!-- Các nhãn (label) liên kết với các radio buttons -->
+            <label for="home" class="home">
+                <i class="fas fa-home"></i>Home <!-- Nhãn cho radio Home -->
+            </label>
+            <label for="blog" class="blog">
+                <i class="fas fa-blog"></i>Blog <!-- Nhãn cho radio Blog -->
+            </label>
+            <label for="code" class="code">
+                <i class="fas fa-code"></i>Code <!-- Nhãn cho radio Code -->
+            </label>
+            <label for="help" class="help">
+                <i class="fas fa-envelope"></i>Help <!-- Nhãn cho radio Help -->
+            </label>
+            <label for="about" class="about">
+                <i class="fas fa-user"></i>About <!-- Nhãn cho radio About -->
+            </label>
+        </nav>
+    </div>
+</body>
+</html>
+
+<!--Radio button cho phép người dùng chọn một trong nhiều lựa chọn (chỉ chọn một trong các radio có cùng name).
+Label giúp người dùng dễ dàng chọn radio bằng cách nhấp vào văn bản (hoặc hình ảnh)
+
+
+-->

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    
+}
+body{
+    margin: 0;
+    height: 150vh; /* Chiều cao toàn màn hình */
+    display: flex; /* Kích hoạt Flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+.container{
+    max-width: 700px;
+    height: 825px;
+    border: 2px solid black;
+    padding: 30px 40px 30px 60px;
+    font-weight: 500;
+}
+.container .name{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+.container .exp1,
+.container .source,
+.container .edu,
+.container .skills .sk,
+.container .job{
+    color: #0fd694;
+}
+.container .job{
+    padding: 0 0 15px 0;
+}
+.container .skills{
+    padding: 10px 0 20px 0;
+}
+.container .skills p{
+    padding-top: 3px;
+}
+
+.container .school{
+    color: #48D1CC;
+    padding-top: 8px;
+}
+.container .exp1{
+    padding: 15px 0 10px 0;
+}
+.education .month{
+    color: rgb(72, 31, 175);
+}
+.container .experience p{
+    color: rgb(72, 31, 175);
+}
+.experience .exp{
+    color: #48D1CC;
+    padding: 0 0 5px 0;
+}
+.container .source{
+    padding: 20px 0 10px 0;
+}

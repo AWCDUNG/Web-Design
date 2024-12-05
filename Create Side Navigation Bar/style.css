@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+/* Import font Montserrat tu Google Fonts */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+/* Reset margin, padding, va su dung font 'Poppins' lam font mac dinh */
+html, body {
+  height: 100%; /* Đảm bảo chiều cao của body phủ toàn bộ màn hình */
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+  padding: 0;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(tải\ xuống.jpg) no-repeat center  ; /* Đảm bảo hình nền cố định */
+  background-size: cover;
+  z-index: -99;
+  transition: all 0.4s ease; /* Thêm hiệu ứng chuyển động cho nền */
+}
+
+/* Khi sidebar di chuyển vào, background cũng di chuyển */
+#btn:checked ~ body::after {
+  transform: translateX(270px); /* Di chuyển nền theo sidebar */
+}
+.wrapper {
+  height: 100%;
+  width: 300px;
+  position: relative;
+}
+/* Khung bao quanh menu (wrapper), kich thuoc co dinh la 300px va cao 100% */
+
+input[type="checkbox"] {
+  display: none;
+}
+/* An checkbox (input[type="checkbox"]) de chi hien thi nut menu */
+
+.wrapper .menu-btn {
+  position: absolute;
+  top: 10px;
+  left: 20px;/*nut bấm bên phải 10px sau khi checkbox sẽ dịch chuyen*/
+  height: 45px;
+  width: 45px;
+  z-index: 999; /* Tang thu tu xep chong de nut o tren cung */
+  color: #f2f2f2;
+  background: #4a4a4a;
+  border: 1px solid #333;
+  text-align: center;
+  line-height: 45px; /* Can giua text (hoac icon) theo chieu doc */
+  border-radius: 10px; /* Bo tron goc nut */
+  cursor: pointer;
+  font-size: 23px; /* Kich thuoc chu (hoac icon) trong nut */
+  transition: all 0.5s ease; /* Hieu ung chuyen doi */
+}
+/* Nut menu (menu-btn) duoc thiet ke de no co hinh chu nhat bo tron */
+
+#btn:checked ~ .menu-btn {/*trạng thái đầu nút menu bên phải 247px*/
+  left: 247px;
+}
+/* Khi checkbox (id="btn") duoc check, nut menu (menu-btn) di chuyen sang ben phai */
+
+#btn:checked ~ .menu-btn i::before { /*Nut checkbox kết hợp với icon menu sau đó before chèn ký hiệu vào nút bấm*/
+  content: "\f00d";
+}
+/* Khi checkbox duoc check, thay doi bieu tuong trong nut thanh dau 'X' */
+
+
+.wrapper #sidebar {
+  position: fixed;
+  height: 100%;
+  width: 270px;
+  background: #708090;
+  overflow: hidden; /* An phan noi dung vuot qua */
+  left: -270px; /* An sidebar o ngoai man hinh */
+  transition: all 0.4s ease; /* Hieu ung chuyen dong */
+}
+/* Sidebar an ban dau, chi hien khi checkbox duoc check */
+
+#btn:checked ~ #sidebar { /*slidebar đang ở ngoài màn hình bên trái 270px sau khi check sẽ dịch sang phải 270px*/
+  left: 0;
+}
+/* Khi checkbox duoc check, sidebar hien thi (di chuyen tu trai qua) */
+
+#sidebar .title {
+  color: #f2f2f2;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 65px;
+  background: #333;
+  text-align: center;
+}
+/* Tieu de cua sidebar, can giua text va co nen mau xam dam */
+
+#sidebar .list-items {
+  position: relative;
+  background: #0b4f93;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+}
+/* Danh sach muc trong sidebar, xoa dau cham (list-style: none) */
+
+#sidebar .list-items li {
+  padding-left: 40px; /* Khoang cach giua text va canh trai */
+  line-height: 50px; /* Khoang cach giua cac dong text */
+  border-top: 2px solid rgba(255, 255, 255, 0.1); /* Duong vien mo */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.6s ease; /* Hieu ung khi hover vao item */
+}
+
+#sidebar .list-items li:hover {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  box-shadow: 0 0 10px 3px #222; /* Them hieu ung bong khi hover */
+}
+/* Khi hover vao muc, thay doi vien va them bong */
+
+#sidebar li a {
+  color: #fff;
+  text-decoration: none; /* Xoa gach chan lien ket */
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* Lien ket ben trong cac muc, mau trang va font dam */
+
+#sidebar .list-items li a i {
+  margin-right: 20px;
+}
+/* Them khoang cach giua icon va text trong muc */
+
+#sidebar .list-items .icons {
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 100px; /* Vi tri o phia duoi sidebar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Cac icon trong sidebar duoc can giua theo chieu ngang */
+
+#sidebar .list-items .icons a {
+  margin: 0 8px; /* Khoang cach giua cac icon */
+  color: #f2f2f2;
+  height: 40px;
+  width: 40px;
+  background: #4a4a4a;
+  border: 1px solid #383838;
+  line-height: 40px; /* Can giua text/icon theo chieu doc */
+  text-align: center;
+  border-radius: 60px; /* Hinh tron hoan toan */
+  transition: all 0.5s ease; /* Hieu ung hover */
+}
+/* Cac icon trong sidebar, hinh tron va co nen mau xam dam */
+
+#sidebar .list-items .icons a:hover {
+  background: #fff; /* Thay doi nen khi hover */
+  transform: scale(1.3); /* Tang kich thuoc icon */
+}
+#sidebar .list-items .icons .facebook:hover{
+    background: #1877f2;
+}

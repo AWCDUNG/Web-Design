@@ -1,0 +1,99 @@
+/* Import font Poppins từ Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+    margin: 0; /* Xóa khoảng cách mặc định của tất cả các phần tử. */
+    padding: 0; /* Xóa padding mặc định của tất cả các phần tử. */
+    box-sizing: border-box; /* Đảm bảo padding và border được tính trong kích thước phần tử. */
+    font-family: 'Poppins', sans-serif; /* Áp dụng font Poppins cho toàn bộ trang. */
+}
+
+body {
+    height: 100vh; /* Chiều cao của body chiếm toàn bộ màn hình. */
+    width: 100%; /* Chiều rộng của body chiếm toàn bộ màn hình. */
+    display: flex; /* Sử dụng flexbox để căn chỉnh nội dung. */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang. */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc. */
+    background: #f2f2f2; /* Màu nền xám nhạt. */
+}
+
+nav {
+    position: relative; /* Định vị tương đối để các phần tử con định vị bên trong. */
+    width: 600px; /* Chiều rộng của thanh điều hướng. */
+    height: 60px; /* Chiều cao của thanh điều hướng. */
+    border-radius: 5px; /* Bo tròn góc các cạnh. */
+    background: rgb(255, 255, 255); /* Màu nền trắng. */
+    display: flex; /* Sắp xếp các mục bên trong theo hàng ngang. */
+    align-items: center; /* Căn giữa các mục điều hướng theo chiều dọc. */
+    text-align: center; /* Văn bản nằm giữa theo chiều ngang. */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Đổ bóng cho thanh điều hướng. */
+}
+
+nav label {
+    width: 100%; /* Mỗi mục chiếm 100% chiều rộng của khung chứa nó. */
+    height: 100%; /* Chiều cao mỗi mục bằng chiều cao thanh điều hướng. */
+    line-height: 60px; /* Căn chữ giữa theo chiều dọc bằng cách khớp với chiều cao mục. */
+    font-size: 18px; /* Kích thước chữ trong mục điều hướng. */
+    font-weight: 400; /* Độ đậm chữ mặc định. */
+    border-radius: 10px; /* Bo tròn các góc mục khi hover. */
+    margin: 0 5px; /* Khoảng cách giữa các mục điều hướng. */
+    position: relative; /* Định vị tương đối để chỉnh sửa vị trí các thành phần con (icon). */
+    color: #8e44ad; /* Màu chữ mặc định tím nhạt. */
+    z-index: 1; /* Đảm bảo mục nằm trên thanh trượt. */
+    transition: all 0.3 ease; /* Hiệu ứng mượt khi thay đổi thuộc tính. */
+    cursor: pointer; /* Hiển thị con trỏ tay khi hover. */
+}
+
+nav label:hover {
+    background: rgba(142, 68, 173, 0.3); /* Tô nền tím nhạt khi người dùng di chuột vào mục. */
+}
+
+nav label i {
+    margin-right: 5px; /* Khoảng cách giữa biểu tượng (icon) và chữ trong mục. */
+}
+
+nav .slider {
+    position: absolute; /* Định vị tuyệt đối để thanh trượt nằm trong khung điều hướng. */
+    height: 100%; /* Chiều cao của thanh trượt bằng với thanh điều hướng. */
+    width: 20%; /* Chiều rộng thanh trượt bằng 1/5 thanh điều hướng. */
+    background: #8e44ad; /* Màu nền của thanh trượt (tím đậm). */
+    left: 0; /* Vị trí ban đầu của thanh trượt ở bên trái. */
+    right: 0; /* Thanh trượt chỉ hoạt động trong giới hạn khung điều hướng. */
+    border-radius: 5px; /* Bo tròn góc của thanh trượt. */
+    transition: all 0.3s cubic-bezier(0.68,-0.55,0.265,1.55); /* Hiệu ứng mượt khi di chuyển thanh trượt. */
+    z-index: 1; /* Thanh trượt nằm dưới chữ (label). */
+}
+
+/* Các trạng thái khi một radio button được chọn */
+#home:checked ~ nav label.home,
+#blog:checked ~ nav label.blog,
+#code:checked ~ nav label.code,
+#help:checked ~ nav label.help,
+#about:checked ~ nav label.user {
+    color: #fff; /* Thay đổi màu chữ thành trắng khi mục tương ứng được chọn. */
+}
+
+#blog:checked ~ nav .slider {
+    left: 20%; /* Thanh trượt di chuyển sang vị trí 20% khi chọn mục Blog. */
+}
+
+#code:checked ~ nav .slider {
+    left: 40%; /* Thanh trượt di chuyển sang vị trí 40% khi chọn mục Code. */
+}
+
+#help:checked ~ nav .slider {
+    left: 60%; /* Thanh trượt di chuyển sang vị trí 60% khi chọn mục Help. */
+}
+
+#about:checked ~ nav .slider {
+    left: 80%; /* Thanh trượt di chuyển sang vị trí 80% khi chọn mục About. */
+}
+
+input[type="radio"] {
+    display: none; /* Ẩn các radio buttons để người dùng không nhìn thấy. */
+}
+/*#home:checked ~ nav label.home có nghĩa là:
+
+#home:checked: Chọn radio button có id="home" khi nó được chọn (checked).
+~: Tìm các phần tử sibling (cùng cấp) sau radio button đã được chọn.
+nav label.home: Chọn thẻ <label> có class .home trong phần tử <nav>.
+#home:checked ~ nav label.home trỏ đến thẻ <label> có class home trong phần tử <nav> sau khi radio button có id="home" được chọn*/

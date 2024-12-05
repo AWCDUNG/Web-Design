@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+    margin: 0; /* Loại bỏ khoảng cách ngoài của tất cả các phần tử */
+    padding: 0; /* Loại bỏ khoảng cách bên trong của tất cả các phần tử */
+    box-sizing: border-box; /* Bao gồm cả padding và border vào trong kích thước của phần tử */
+    font-family: "Poppins", sans-serif; /* Định nghĩa font chữ sử dụng cho toàn bộ tài liệu */
+}
+
+body {
+    display: flex; /* Sử dụng Flexbox để căn giữa phần tử con */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    min-height: 100vh; /* Chiều cao tối thiểu bằng 100% của khung nhìn (viewport) */
+    background: url(img.jpg) no-repeat; /* Ảnh nền không lặp lại */
+    background-size: cover; /* Phóng to ảnh nền để phủ đầy màn hình */
+    background-position: center; /* Đặt ảnh nền ở giữa màn hình */
+}
+
+.wrappen {
+    width: 450px; /* Chiều rộng của khối bao bọc */
+    background: transparent; /* Nền trong suốt */
+    color: #fff; /* Màu chữ là trắng */
+    border-radius: 15px; /* Bo góc cho khối */
+    padding: 30px 40px; /* Khoảng cách bên trong theo chiều dọc và ngang */
+    border: 2px solid rgba(0, 0, 0, .2); /* Viền màu đen nhạt và mờ */
+    backdrop-filter: blur(20px); /* Hiệu ứng làm mờ phía sau khối */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2); /* Đổ bóng của khối */
+}
+
+.wrappen h1 {
+    font-size: 35px; /* Kích thước chữ */
+    text-align: center; /* Căn giữa chữ */
+}
+
+.wrappen .input-box {
+    width: 100%; /* Chiều rộng bằng 100% của phần tử cha */
+    height: 50px; /* Chiều cao của hộp nhập liệu */
+    position: relative; /* Đặt vị trí tương đối cho các phần tử con */
+    margin: 30px 0; /* Khoảng cách bên trên và bên dưới của hộp nhập liệu */
+}
+
+.input-box input {
+    width: 100%; /* Chiều rộng của ô nhập liệu */
+    height: 100%; /* Chiều cao của ô nhập liệu */
+    background: transparent; /* Nền trong suốt */
+    border: none; /* Loại bỏ viền */
+    outline: none; /* Loại bỏ đường viền khi tập trung vào */
+    border: 2px solid rgba(255, 255, 255, .2); /* Viền màu trắng mờ */
+    border-radius: 40px; /* Bo tròn góc cho ô nhập liệu */
+    font-size: 15px; /* Kích thước chữ trong ô nhập liệu */
+    color: #fff; /* Màu chữ là trắng */
+    padding: 20px 45px 20px 20px; /* Khoảng cách bên trong ô nhập liệu, chiều dọc là 20px, chiều ngang là 20px và 45px */
+}
+
+.input-box input::placeholder {
+    color: #fff; /* Màu chữ cho placeholder là trắng */
+}
+
+.wrappen .remember-forgot {
+    display: flex; /* Sử dụng Flexbox để căn phần tử con */
+    justify-content: space-between; /* Căn đều khoảng cách giữa các phần tử con */
+    font-size: 15px; /* Kích thước chữ */
+    margin: -15px 0 15px; /* Khoảng cách trên là âm 15px, dưới là 15px */
+}
+
+.wrappen i {
+    position: absolute; /* Đặt vị trí tuyệt đối cho biểu tượng */
+    right: 20px; /* Cách phải 20px */
+    top: 50%; /* Cách trên 50% */
+    transform: translateY(-50%); /* Điều chỉnh vị trí theo trục Y để căn giữa */
+    font-size: 23px; /* Kích thước của biểu tượng */
+}
+
+.remember-forgot label input {
+    accent-color: #fff; /* Màu sắc cho ô check */
+    margin-right: 5px; /* Khoảng cách bên phải của ô check */
+}
+
+.remember-forgot a {
+    color: #fff; /* Màu chữ của link là trắng */
+    text-decoration: none; /* Loại bỏ gạch chân của link */
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline; /* Thêm gạch chân khi hover vào link */
+}
+
+.wrappen .btn {
+    width: 100%; /* Chiều rộng của nút */
+    height: 35px; /* Chiều cao của nút */
+    background: #fff; /* Màu nền trắng cho nút */
+    border: none; /* Loại bỏ viền */
+    outline: none; /* Loại bỏ đường viền khi tập trung vào */
+    border-radius: 40px; /* Bo tròn góc cho nút */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1); /* Đổ bóng cho nút */
+    cursor: pointer; /* Hiển thị con trỏ chuột khi hover vào nút */
+    font-size: 16px; /* Kích thước chữ trong nút */
+    color: #333; /* Màu chữ của nút */
+    font-weight: 600; /* Độ đậm của chữ */
+}
+
+.wrappen .register-link {
+    font-size: 15px; /* Kích thước chữ cho phần đăng ký */
+    text-align: center; /* Căn giữa chữ */
+    margin: 20px 0 15px; /* Khoảng cách trên là 20px, dưới là 15px */
+}
+
+.register-link p a {
+    color: #fff; /* Màu chữ là trắng cho link đăng ký */
+    text-decoration: none; /* Loại bỏ gạch chân cho link */
+    font-weight: 600; /* Độ đậm của chữ */
+}
+
+.register-link p a:hover {
+    text-decoration: underline; /* Thêm gạch chân khi hover vào link */
+}

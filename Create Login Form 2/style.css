@@ -1,0 +1,136 @@
+/* Import font từ Google Fonts với các kiểu chữ Poppins */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+/* Reset toàn bộ margin và padding về 0, đồng thời áp dụng kiểu font Poppins */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Thiết lập layout cho HTML và body để căn giữa nội dung trong trang */
+html,body{
+    display: grid; /* Sử dụng grid layout */
+    height: 100%; /* Chiều cao chiếm toàn bộ màn hình */
+    width: 100%; /* Chiều rộng chiếm toàn bộ màn hình */
+    place-items: center; /* Căn giữa nội dung theo cả hai trục */
+    background: #f2f2f2; /* Màu nền */
+}
+
+/* Định nghĩa cho khối chính "wrapper" */
+.wrapper{
+    width: 450px; /* Độ rộng của khối */
+    background: #fff; /* Màu nền trắng */
+    border-radius: 15px; /* Bo góc khối */
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); /* Tạo hiệu ứng bóng */
+}
+
+/* Phần tiêu đề bên trong khối wrapper */
+.wrapper .title{
+    color: #fff; /* Màu chữ trắng */
+    font-size: 35px; /* Cỡ chữ */
+    font-weight: 600; /* Độ đậm của chữ */
+    text-align: center; /* Căn giữa chữ */
+    border-radius: 15px 15px 0 0; /* Bo góc phía trên */
+    line-height: 100px; /* Chiều cao dòng để căn giữa nội dung */
+    background: linear-gradient(-135deg,#c850c0,#4158d0); /* Hiệu ứng màu chuyển sắc */
+}
+
+/* Phần chứa form trong wrapper */
+.wrapper form{
+    padding: 10px 30px 50px 30px; /* Khoảng cách bên trong của form */
+}
+
+/* Các trường trong form */
+.wrapper form .field{
+    position: relative; /* Định vị tương đối */
+    height: 50px; /* Chiều cao của trường */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-top: 20px; /* Khoảng cách phía trên */
+}
+
+/* Ô input trong form */
+.wrapper form .field input{
+    height: 100%; /* Chiều cao chiếm toàn bộ field */
+    width: 100%; /* Chiều rộng chiếm toàn bộ field */
+    font-size:18px; /* Cỡ chữ */
+    padding-left: 19px; /* Khoảng cách chữ cách mép trái */
+    border-radius: 25px; /* Bo góc ô input */
+    border: 1px solid lightgrey; /* Đường viền */
+}
+
+/* Thay đổi màu viền khi ô input được focus hoặc có giá trị */
+.wrapper form .field input:valid,
+.wrapper form .field input:focus {
+    border-color: #4158d0; /* Đổi màu viền */
+}
+
+/* Nhãn label bên trong mỗi field */
+.wrapper form .field label{
+    position: absolute; /* Định vị tuyệt đối */
+    top: 50%; /* Vị trí giữa theo chiều dọc */
+    left: 20px; /* Cách mép trái */
+    font-size: 17px; /* Cỡ chữ */
+    transform: translateY(-50%); /* Căn chỉnh chính giữa */
+    pointer-events: none; /* Vô hiệu hóa thao tác chuột */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động mượt */
+    color: #999; /* Màu chữ mặc định */
+}
+
+/* Hiệu ứng khi ô input được focus hoặc nhập giá trị */
+.wrapper form .field input:focus ~ label,
+.wrapper form .field input:valid ~ label{
+    top: 0%; /* Nhãn di chuyển lên trên */
+    color: #4158d0; /* Đổi màu nhãn */
+    font-size: 16px; /* Thu nhỏ chữ */
+    transform: translateY(-50%); /* Căn chỉnh giữa */
+    background: #fff; /* Nền trắng phía sau nhãn */
+}
+
+/* Nút submit */
+.wrapper form .field input[type="submit"]{
+    color: #fff; /* Màu chữ trắng */
+    background: linear-gradient(-135deg,#c850c0,#4158d0); /* Hiệu ứng màu gradient */
+    font-size: 19px; /* Cỡ chữ */
+    font-weight: 500; /* Độ đậm chữ */
+    border: none; /* Loại bỏ đường viền */
+    padding-left: 0px; /* Không có khoảng cách nội dung */
+    cursor: pointer; /* Con trỏ dạng nút */
+    transition: all 0.3s ease; /* Hiệu ứng mượt */
+}
+
+/* Hiệu ứng nhấn nút submit */
+.wrapper form .field input[type="submit"]:active{
+    transform: scale(0.95); /* Giảm kích thước khi nhấn */
+}
+
+/* Liên kết quên mật khẩu */
+.wrapper form .pass-link{
+    color: #4158d0; /* Màu chữ */
+    margin: 10px 0 0 10px; /* Khoảng cách từ các phía */
+}
+
+/* Phần liên kết đăng ký */
+.wrapper form .signup-link{
+    text-align: center; /* Căn giữa chữ */
+    margin-top:20px; /* Khoảng cách phía trên */
+    color: #262626; /* Màu chữ */
+}
+
+/* Định dạng liên kết trong pass-link và signup-link */
+.wrapper form .pass-link a,
+.wrapper form .signup-link a{
+    color: #4158d0; /* Màu chữ */
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+/* Hiệu ứng khi rê chuột qua liên kết */
+.wrapper form .signup-link a:hover{
+    text-decoration: underline; /* Gạch chân liên kết */
+}
+
+/* Hiệu ứng khi rê chuột qua nút submit */
+.wrapper .field input[type="submit"]:hover{
+    background: linear-gradient(-135deg,#4158d0,aqua); /* Thay đổi gradient */
+}
