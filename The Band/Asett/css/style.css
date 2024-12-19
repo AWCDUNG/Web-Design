@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+html{
+    font-family: 'Poppins', sans-serif; 
+}
+.wrapper{
+    width: 100%;
+    height: 1500px;
+
+}
+.header{
+    width: 100%;
+    height: 60px;
+    background: #000000;
+    position: fixed;
+    z-index: 9 ;
+}
+.nav{
+    display: inline-block;
+}
+.nav > li{
+    display: inline-block;
+}
+.nav li{
+    
+    list-style: none;
+    position: relative;
+    
+}
+.nav > li > a{  /* > tac dong len the con gan nhat cap 1 */
+    color: #fff; 
+    text-transform: uppercase;
+}
+.nav li a{
+    text-decoration: none;
+    line-height: 60px;
+    padding: 0 30px;
+    display:block;
+    font-size: 25px;
+    font-weight: 500;
+}
+.nav li:hover .subnav{
+    display: block;
+}
+.nav .subnav li:hover a,
+.nav > li:hover > a{
+    background: #ccc;
+    color: #000;
+}
+.nav .subnav{
+    display: none;
+    position: absolute;
+    background: #fff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    min-width: 230px;
+}
+.nav .subnav a{
+    color: #000;
+    line-height: 40px;
+}
+.nav li i{
+    font-size: 23px;
+}
+.header .search-btn{
+    cursor: pointer;
+    float: right;
+}
+
+.search-btn i{
+    color: aqua;
+    font-size: 30px;
+    line-height:59px ;
+    padding: 0 35px;
+    
+}
+.header .search-btn :hover{
+    background: #f44336;
+    
+}
+.slider{
+    position: relative;
+    width: 100%;
+    padding-top: 50%;
+    top: 60px;
+    background: url(/Asett/Img/la.jpg) top center / cover no-repeat    ; 
+} 
+.slider .text-content{
+    position: absolute;
+    color:#fff;
+    bottom: 49px;/*chữ nằm gọn trong background với cách lề dưới cùng 0 */
+    transform: translateX(-50%);/*lùi lại trục x 50% độ dài của đối tượng*/
+    left: 50%;/*Khoảng cách từ đầu dòng chữ cách left 50%*/
+    text-align: center;
+    /* width: 100%; */
+}
+.slider .text-heading{
+    font-size: 30px;
+    font-weight: 500;
+    
+}
+.text-description{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+} 
+
+.content{
+    
+
+
+}
+.footer{
+
+}

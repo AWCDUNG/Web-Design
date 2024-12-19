@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f0f2f5;
+    padding: 0 15px;
+}
+.facebool-page{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    width: 100%;
+}
+.facebool-page .text{
+    margin-bottom: 90px;
+}
+.facebool-page h1{
+    font-size: 4rem;
+    color: #1877f2;
+    margin-bottom: 10px;
+}
+.facebool-page p{
+    font-size: 1.74rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1),
+                0 8px 16px rgba(0,0,0,0.1);
+}
+form input{
+    height: 55px;
+    width: 100%;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+form input:focus{
+    outline: none;
+    border-color: #1877f2;
+}
+::placeholder{
+    color: #777;
+    font-size: 1.063rem;
+}
+.login-link{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+.login-link .login-btn{
+    padding: 15px 0;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #1877f2;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition:all 0.2s ease;
+}
+.login-link .login-btn:hover{
+    background: #0d65d9;
+}
+form a{
+    text-decoration: none;
+
+}
+.login-link .forgot-password{
+    color: #1877f2;
+    font-size: 0.875rem;
+}
+.login-link .forgot-password:hover{
+    text-decoration: underline;
+}
+hr{
+    border: none;
+    height: 2px;
+    background: #ccc;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.create-account{
+    margin-top: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.create-account a{
+    padding: 15px 20px;
+    background: #42b72a;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.063rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+.create-account a:hover{
+    background: #3ba626;
+}
+@media (max-width:900px) {
+    .facebool-page{
+        flex-direction: column;
+        text-align: center;
+    }
+    .facebool-page .text{
+        margin-bottom: 30px;
+    }
+}
+@media (max-width:460px){
+    .facebool-page h1{
+        font-size: 3.5rem;
+    }
+    .facebool-page p{
+        font-size: 1.3rem;
+    }
+    form{
+        padding: 15px;
+    }
+}

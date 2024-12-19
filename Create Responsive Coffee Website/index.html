@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Website HTML and CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+</head>
+
+<body>
+    <!-- Phần Header (Phần trên cùng của trang web) -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo của website -->
+            <a href="#" class="logo">Coffee<span>.</span></a>
+            <!-- 'span' để tạo dấu chấm khác màu sắc cho logo -->
+
+            <!-- Danh sách menu -->
+            <ul class="menu-links">
+                <!-- Nút đóng menu trên màn hình nhỏ (hiện khi menu mở) -->
+                <span id="close-menu-btn" class="material-symbols-outlined">Close</span>
+                <!-- Các mục trong menu -->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+
+            <!-- Nút mở menu trên màn hình nhỏ -->
+            <span id="menu-btn" class="material-symbols-outlined">menu</span>
+        </nav>
+    </header>
+
+    <!-- Phần Hero Section (Phần lớn giữa trang) -->
+    <section class="hero-section">
+        <div class="content">
+            <!-- Tiêu đề chính của phần hero -->
+            <h1>Start Your Day With Fresh Coffee</h1>
+            <!-- Đoạn mô tả ngắn -->
+            <p>
+                Coffee is a popular and beloved beverage enjoyed by
+                people around the world. Awaken your senses with a steaming cup of liquid motivation.
+            </p>
+            <!-- Nút đặt hàng -->
+            <button>Order Now</button>
+        </div>
+    </section>
+
+    <!-- Phần JavaScript -->
+    <script>
+        // Lấy thẻ header để thao tác với nó
+        const header = document.querySelector("header");
+
+        // Lấy nút mở menu có id là "menu-btn"
+        const menutBtn = document.querySelector("#menu-btn");
+
+        // Lấy nút đóng menu có id là "close-menu-btn"
+        const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+        // Khi click vào nút mở menu, toggle class "show-mobile-menu" cho header
+        menutBtn.addEventListener("click", () => {
+            header.classList.toggle("show-mobile-menu");
+        });
+
+        // Khi click vào nút đóng menu, thực hiện lại hành động của menu-btn
+        closeMenuBtn.addEventListener("click", () => {
+            menutBtn.click(); // Giả lập click vào nút mở menu
+        });
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Responsive Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="../custom-scripts.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <!-- Header Start -->
+        <header>
+            <nav class="nav container">
+                <h2 class="nav_logo"><a href="#">CodingLab</a></h2>
+
+                <ul class="menu_items">
+                    <img src="website-images/images/times.svg" alt="timesicon" id="menu_toggle">
+                    <li><a href="#" class="nav_link">Home</a></li>
+                    <li><a href="#" class="nav_link">About Us</a></li>
+                    <li><a href="#" class="nav_link">Services</a></li>
+                    <li><a href="#" class="nav_link">Project</a></li>
+                    <li><a href="#" class="nav_link">Contact Us</a></li>
+                </ul>
+                <img src="website-images/images/bars.svg" alt="timesicon" id="menu_toggle">
+            </nav>
+        </header>
+        <!-- Header End -->
+
+        <!-- Hero Start -->
+
+        <section class="hero">
+            <div class="row">
+                <div class="column">
+                    <h2>Top free tool and extension to <br />radiply grow you business</h2>
+                    <p>It is a pain in itself, and it will be followed by an adipiscing elitist. Tolerating? For some
+                        will be blinded by the law, with the perspicacity of the accusers. The pleasure of the present
+                        because now I will open something of life!</p>
+                        <div class="butttons">
+                            <button class="btn">Read More</button>
+                            <button class="btn">Contact Us</button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <img src="website-images/images/hero.png" alt="heroimg" class="hero_img">
+                    </div>
+                </div>
+        </section>
+        <!-- Hero End -->
+    </main>
+    <script>
+        const header = document.querySelector("header");
+        const menuToggler = document.querySelectorAll("#menu_toggle");
+            menuToggler.forEach(toggler => {
+        toggler.addEventListener("click", () => header.classList.toggle("showMenu"));
+      });
+    </script>
+</body>
+
+</html>

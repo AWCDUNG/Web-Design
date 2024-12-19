@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+    background: #f2f2f2;
+}
+html{
+    scroll-behavior: smooth;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    z-index: 100;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.navbar{
+    justify-content: space-between;
+    
+}
+.nav-link{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+.navbar a{
+    padding: 25px 0;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+}
+.navbar a:hover{
+    color: #ddd;
+}
+/* Homepage */
+
+.homepage{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: url(images/home-bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.container::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0 ,0, 0.2);
+    z-index: -9;
+}
+.homepage .content{
+    height: 85%;
+    flex-direction: column;
+    justify-content: center;
+}
+.homepage{
+    color: #fff;
+    text-align: center;
+}
+.homepage .text h1{
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.homepage a{
+    color: #333;
+    text-decoration: none;
+    background: #fff;
+    padding: 10px 30px;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    font-size: 20px;
+    margin-top: 25px;
+    box-shadow: rgba(0,0 ,0, 0.3) 0 5px 10px;
+    transition: all 0.4s ease;
+    
+}
+.homepage a:hover{
+    color: #fff;
+    background: rgba(255, 255, 255, 0.3);
+}
+/* Services */
+section{
+    padding-top: 80px;
+}
+section .cards{
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.section-title{
+    text-align: center;
+}
+section h2{
+    font-size: 2rem;
+}
+section .card{
+    margin-top: 50px;
+}
+section .card{
+    width: calc(100% / 3 - 30px);
+    text-align: center;
+    list-style: none;
+    background-color: #fff;
+    padding: 40px 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0 ,0, 0.1);
+}
+section .card img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+section .card p{
+    margin-top: 5px;
+}
+/* Portfolio */
+.portfolio .card{
+    padding: 0 0 20px;
+}
+.portfolio .card img{
+    height: 240px;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+/* About */
+
+.about .company-infor{
+    margin-top: 30px;
+}
+.about .row{
+    padding: 0 10px;
+}
+.about h3{
+    margin: 30px 0 10px;
+}
+.about ul{
+    padding-left: 20px;
+}
+/* Contact */
+.contact .row{
+    margin: 60px 0 90px;
+    justify-content: space-between;
+}
+.contact .row .col{
+    padding: 0 10px;
+    width: calc(100% / 2 - 50px);
+}
+.contact .row .col p{
+    color: #7a7a7a;
+    margin-bottom: 10px;
+    margin-right: 50px;/**/
+}
+.contact .row .col p i{
+    margin-right: 10px;
+}
+.contact form input{
+    width: 100%;
+    height: 45px;
+    margin-bottom: 20px;
+    border: 1px solid #bfbfbf;
+    padding: 0 15px;
+}
+.contact form textarea{
+    padding: 15px;
+    width: 100%;
+    height: 150px;
+    border: 1px solid #bfbfbf;
+}
+.contact form button{
+    padding: 15px 30px;
+    border-radius: 9px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #fff;
+    border: none;
+    background: #333;
+    transition: all 0.4s ease;
+    cursor:pointer;
+}
+.contact form button:hover{
+    background: #525252;
+}
+/* footer */
+.footer{
+    background: #333;
+    padding: 20px 0;
+}
+.footer span{
+    color: #fff;
+}
+#menu-toggler , #hamberger-btn{
+    display: none;
+}
+/* Responsive */
+@media (width < 860px) {
+.navbar .nav-link{
+    position: fixed;
+    top: 65px;
+    left: 0;
+    height: 100%;
+    display: block;
+    background:#333;
+    width: 300px;
+    padding-left: 20px;
+    padding-top: 30px;
+    left: -100%;
+    transition: all 0.6s ease;
+    
+}
+#menu-toggler:checked ~ .nav-link{
+    left: 0;
+}
+.nav-link li{
+    font-size: 18px;
+}
+#hamberger-btn{
+    display: inline-block;
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+}
+section .cards .card{
+    width: calc(100%/2 -15px);
+}
+.contact .row{
+    flex-direction: column;
+}
+.contact .row .col:last-child{
+    margin-top: 40px;
+}
+}
+@media (width<560px){
+    section .cards .card{
+        width: 100%;
+    }
+    .homepage .text h1{
+        font-size: 30px;
+    }
+    section h2{
+        font-size: 1.5rem;
+    }
+}

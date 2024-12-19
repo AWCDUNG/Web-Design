@@ -1,0 +1,193 @@
+/* Import font 'Poppins' từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset toàn bộ padding, margin và thiết lập box-sizing cho tất cả phần tử */
+* {
+  margin: 0; /* Xóa khoảng cách mặc định */
+  padding: 0; /* Xóa lề mặc định */
+  box-sizing: border-box; /* Giới hạn kích thước bao gồm cả padding và border */
+  font-family: 'Poppins', sans-serif; /* Sử dụng font Poppins */
+}
+
+/* Thiết lập cho body */
+body {
+  height: 100vh; /* Chiều cao bằng 100% viewport height */
+  background: url(hero-bg.jpg); /* Đặt hình nền */
+  background-position: center; /* Căn giữa hình nền */
+  background-size: cover; /* Hình nền bao phủ toàn bộ màn hình */
+}
+
+/* Header cố định ở trên cùng của trang */
+header {
+  position: fixed; /* Giữ header cố định khi cuộn trang */
+  top: 0; /* Căn ở trên cùng */
+  left: 0; /* Căn bên trái */
+  width: 100%; /* Chiều rộng 100% */
+  padding: 20px; /* Khoảng cách bên trong header */
+}
+
+/* Logo trong header */
+.navbar .logo {
+  font-size: 2.1rem; /* Cỡ chữ lớn */
+  font-weight: 600; /* Độ đậm của chữ */
+  color: #fff; /* Màu trắng */
+}
+
+.navbar .logo span {
+  color: #c06b3e; /* Màu khác cho dấu chấm trong logo */
+}
+
+/* Menu links trong navbar */
+.navbar .menu-links {
+  display: flex; /* Hiển thị các mục menu theo chiều ngang */
+  gap: 60px; /* Khoảng cách giữa các mục */
+  list-style: none; /* Bỏ dấu chấm của danh sách */
+}
+
+/* Navbar tổng quan */
+header .navbar {
+  display: flex; /* Hiển thị ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: space-between; /* Khoảng cách đều giữa logo và menu */
+  max-width: 1200px; /* Độ rộng tối đa */
+  margin: 0 auto; /* Căn giữa navbar */
+}
+
+/* Link trong navbar */
+.navbar a {
+  color: #ffffff; /* Màu chữ trắng */
+  text-decoration: none; /* Bỏ gạch chân */
+  transition: 0.2s ease; /* Hiệu ứng mượt khi hover */
+}
+
+.navbar a:hover {
+  color: #c06b3e; /* Đổi màu khi hover */
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh; /* Chiều cao bằng toàn màn hình */
+  display: flex; /* Căn giữa nội dung */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  padding: 0 20px; /* Khoảng cách lề bên */
+}
+
+/* Nội dung trong hero section */
+.hero-section .content {
+  color: #fff; /* Màu chữ trắng */
+  max-width: 1200px; /* Chiều rộng tối đa */
+  margin: 0 auto; /* Căn giữa nội dung */
+  width: 100%;
+}
+
+.hero-section .content h1 {
+  font-size: 3rem; /* Cỡ chữ lớn */
+  max-width: 600px; /* Giới hạn chiều rộng */
+}
+
+.hero-section .content p {
+  font-weight: 300; /* Chữ mỏng */
+  margin-top: 17px; /* Khoảng cách từ trên xuống */
+  max-width: 600px; /* Giới hạn chiều rộng */
+}
+
+.hero-section .content button {
+  background: #fff; /* Nền trắng */
+  outline: none; /* Bỏ viền focus */
+  border: none; /* Bỏ đường viền */
+  font-size: 1rem; /* Cỡ chữ */
+  padding: 12px 30px; /* Kích thước nút */
+  border-radius: 6px; /* Bo tròn góc */
+  cursor: pointer; /* Biến con trỏ thành bàn tay */
+  font-weight: 500; /* Độ đậm chữ */
+  margin-top: 40px; /* Khoảng cách từ trên xuống */
+  transition: 0.2s ease; /* Hiệu ứng mượt */
+}
+
+.hero-section .content button:hover {
+  background: #c06b3e; /* Đổi màu nền khi hover */
+  color: #fff; /* Đổi màu chữ */
+  transform: scale(1.1); /* Phóng to nhẹ nút */
+}
+
+/* Nút mở menu trên mobile */
+#menu-btn {
+  color: #fff; /* Màu chữ trắng */
+  cursor: pointer; /* Biến con trỏ thành bàn tay */
+  display: none; /* Ẩn trên màn hình lớn */
+}
+
+/* Nút đóng menu trên mobile */
+#close-menu-btn {
+  display: none; /* Ẩn mặc định */
+  position: absolute; /* Vị trí tuyệt đối */
+  right: 20px; /* Khoảng cách từ bên phải */
+  top: 20px; /* Khoảng cách từ trên xuống */
+  cursor: pointer; /* Biến con trỏ thành bàn tay */
+}
+
+/* Media Query cho màn hình nhỏ hơn 850px */
+@media screen and (max-width: 850px) {
+  header {
+    padding: 10px 20px; /* Giảm padding */
+  }
+
+  /* Hiệu ứng mờ khi menu mobile mở */
+  header.show-mobile-menu::before {
+    content: ""; /* Tạo một lớp mờ */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* Làm mờ nền */
+  }
+
+  /* Hiển thị nút menu và close */
+  #close-menu-btn, #menu-btn {
+    display: block;
+  }
+
+  /* Menu links khi mở trên mobile */
+  .navbar .menu-links {
+    position: fixed;
+    left: -260px; /* Ẩn menu ở ngoài màn hình bên trái */
+    top: 0;
+    flex-direction: column; /* Xếp menu theo cột */
+    width: 260px; /* Độ rộng menu */
+    height: 100vh; /* Chiều cao toàn màn hình */
+    background: #fff; /* Nền trắng */
+    padding: 70px 40px 0; /* Khoảng cách trong menu */
+    transition: left 0.3s ease; /* Hiệu ứng trượt */
+  }
+
+  /* Hiện menu khi header có class 'show-mobile-menu' */
+  header.show-mobile-menu .navbar .menu-links {
+    left: 0; /* Đưa menu vào màn hình */
+  }
+
+  /* Màu chữ menu trên mobile */
+  .navbar a {
+    color: #000; /* Màu đen */
+  }
+
+  /* Căn giữa nội dung hero trên màn hình nhỏ */
+  .hero-section .content {
+    text-align: center;
+  }
+
+  /* Điều chỉnh kích thước chữ */
+  .hero-section .content :is(h1, p) {
+    max-width: 100%;
+  }
+
+  .hero-section .content h1 {
+    font-size: 2.3rem; /* Giảm cỡ chữ */
+    line-height: 60px; /* Khoảng cách dòng */
+  }
+
+  /* Giảm kích thước nút */
+  .hero-section .content button {
+    padding: 9px 18px;
+  }
+}
