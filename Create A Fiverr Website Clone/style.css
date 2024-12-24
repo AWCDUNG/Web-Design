@@ -1,0 +1,226 @@
+/* Importing Google font - Fira Sans */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body{
+    background: #1b1b1b;
+}
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+}
+header .navbar{
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.navbar .menu-links{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+.navbar .menu-links a{
+    color: #fff;
+    text-decoration: none;
+    transition:all 0.2s ease ;
+}
+.navbar .menu-links a:hover{
+    color: #19a463;
+}
+.navbar .menu-links .language-items a{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+.navbar .menu-links .language-item span{
+    font-size: 1.3rem;
+}
+.navbar .menu-links .join-btn a{
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+.navbar .menu-links .join-btn a:hover{
+    background: #19a463;
+    border-color: transparent;
+    color: #fff;
+}
+
+.hero-section {
+    height: 100vh;
+    background: url(hero-img.jpg);
+    background-position: center ;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.hero-section .content{
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    width: 100%;
+}
+.hero-section .content h1{
+    color: #fff;
+    font-size: 3rem;
+    max-width: 630px;
+}
+.hero-section .search-form{
+    display: flex;
+    height: 50px;
+    max-width: 630px;
+    margin-top: 30px;
+}
+.hero-section .search-form input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: #fff;
+    font-size: 1rem;
+    padding: 0 20px ;
+    border-radius: 4px 0 0 4px;
+}
+.hero-section .search-form button{
+    width: 60px;
+    height: 100%;
+    background: #1dbf73;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.hero-section .search-form button:hover{
+    background: #19a463;
+}
+.hero-section .popular-tags{
+    display: flex;
+    color: #fff;
+    gap: 24px;
+    font-weight: 500;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: 35px;
+
+}
+.hero-section .popular-tags .tags {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.hero-section .tags li a{
+    display: flex;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    padding: 6px 15px;
+    text-decoration: none;
+    transition:  0.5s ease;
+    
+}
+.tags li a:hover {
+    transform: scale(1.2); 
+    background-color: #ffffff; 
+    color: #000000; 
+}
+.navbar #close-menu-btn{
+    color: #000000;
+    font-size: 1.7rem;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.navbar #hamberger-btn{
+    color: #fff;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+#close-menu-btn,
+#hamberger-btn{
+    display: none;
+}
+@media screen  and (max-width:900px){
+    header.show-mobile-menu::before{
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(6px);
+    }
+    .navbar :is(#close-menu-btn ,#hamberger-btn){
+        display: block;
+    }
+    .navbar .menu-links{
+        background: #fff;
+        max-width: 300px;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: -300px;
+        display: block;
+        padding:75px 40px ;
+        transition: left 0.4s ease ;
+    }
+    header.show-mobile-menu .navbar .menu-links{
+        left: 0;
+    }
+    .navbar .menu-links li{
+        margin-bottom: 30px;
+    }
+    .navbar .menu-links .join-btn{
+        padding: 0;
+    }
+    .navbar .menu-links .join-btn a:hover{
+        color: #1dbf73;
+        background: none;
+    }
+    .navbar .menu-links a{
+        color: #000;
+        font-size: 1.1rem;
+    }
+    .hero-section{
+        background: none;
+    }
+    .hero-section .content :is(h1 , .search-form){
+        max-width: 100%;
+    }
+    .hero-section .content{
+        text-align: center;
+        font-size: 2.5rem;
+        line-height: 55px;
+    }
+    .hero-section .search-form{
+        display: block;
+        margin-top: 20px;
+    }
+    .hero-section .search-form input{
+        border-radius: 5px;
+    }
+    .hero-section .search-form button{
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+    .hero-section .popular-tags{
+        display: none;
+    }
+   
+}

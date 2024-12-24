@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;;
+}
+:root{
+    --a:#dde1e7;
+    --b:#ffffff73;
+    --c:#4267b2;
+    --d:#1da1f2;
+    --e:#e1306c;
+    --f:#2867b2;
+    --g:#333;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--a);
+}
+.icons{
+    display: flex;
+    margin: 40px 0;
+}
+.icons li{
+    position: relative;
+    list-style: none;
+    height: 70px;
+    width: 70px;
+    margin: 0 10px;
+    background: #dde1e7;
+    border-radius: 50%;
+    box-shadow: -5px -5px 9px var(--b),
+                5px 5px 9px rgba(94, 104, 121, 0.3);
+    text-align: center;
+    cursor: pointer;
+}
+.icons li a{
+    line-height: 70px;
+    font-size: 30px;
+    color:#b6bbc5;
+}
+.second li.shadow-2 a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 55px;
+    width: 55px;
+    line-height: 55px;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow:inset -5px -5px 9px var(--b),
+               inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+.first li.shadow-1 {
+    box-shadow:inset -5px -5px 9px var(--b),
+    inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+.first li.shadow-1 a{
+    font-size: 26px;
+}
+li:nth-child(1).fill-color a{
+    color: #4267b2;
+
+}
+li:nth-child(2).fill-color a{
+    color: #2867b2;
+
+}
+li:nth-child(3).fill-color a{
+    color: #333;
+
+}
+li:nth-child(4).fill-color a{
+    color: #e1306c;
+
+}
+li:nth-child(5).fill-color a{
+    color: #1da1f2;
+
+}
