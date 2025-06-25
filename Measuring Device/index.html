@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Dashboard - Đại học Phenikaa</title>
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header with logo -->
+        <header class="header">
+            <div class="logo"><img src="logoPhenikaa.png" alt=""></div>
+            <h1 class="title">Đại học Phenikaa</h1>
+            <div class="logo"><img src="lab.jpeg" alt=""></div>
+
+        </header>
+        <!-- Campus selector -->
+        <div class="campus-selector">
+            <div class="dropdown">
+                <button class="dropdown-btn" id="dropdown-btn">
+                    <span class="campus-icon">🏫</span>
+                    <span class="campus-text">Đại học Phenikaa 0</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-content" id="dropdown-content">
+                    <div class="dropdown-item active" data-campus="0">
+                        <span class="campus-icon">🏫</span>
+                        Đại học Phenikaa 0
+                    </div>
+                    <div class="dropdown-item" data-campus="1">
+                        <span class="campus-icon">🏫</span>
+                        Đại học Phenikaa 1
+                    </div>
+                    <div class="dropdown-item" data-campus="2">
+                        <span class="campus-icon">🏫</span>
+                        Đại học Phenikaa 2
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main dashboard -->
+        <div class="dashboard">
+            <!-- Left panel with map -->
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.748413661293!2d105.7461114747675!3d20.962616190047957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313452efff394ce3%3A0x391a39d4325be464!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBQaGVuaWthYQ!5e0!3m2!1svi!2s!4v1747513037797!5m2!1svi!2s"
+                    width="100%" height="750" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Right panel with AQI data -->
+            <div class="right-panel">
+                <div class="aqi-summary">
+                    <div class="aqi-label">Chỉ số AQI hiện tại</div>
+                    <div class="aqi-number" id="aqi-main">1</div>
+                    <div class="aqi-status" id="aqi-status">Tốt</div>
+                    <div class="update-time">Đã cập nhật: <span id="update-seconds">5</span> giây trước</div>
+                </div>
+
+                <div class="aqi-forecast">
+                    <div class="forecast-label">Trạng thái kết nối</div>
+                    <div class="status-good" id="connection-status">Đang kết nối...</div>
+                </div>
+
+                <div class="time-display" id="current-time">Loading...</div>
+
+                <!-- Real-time AQI Chart -->
+                <div class="chart-container">
+                    <div class="chart" id="aqi-chart">
+                        <!-- Chart bars will be added by JavaScript -->
+                    </div>
+                    <!-- Color scale for AQI -->
+                    <div class="aqi-scale">
+                        <div class="scale-item good">Tốt</div>
+                        <div class="scale-item moderate">Vừa phải</div>
+                        <div class="scale-item sensitive">Không tốt cho nhóm nhạy cảm</div>
+                        <div class="scale-item unhealthy">Có hại cho sức khoẻ</div>
+                        <div class="scale-item very-unhealthy">Rất nguy hại</div>
+                        <div class="scale-item hazardous">Nguy hiểm (301+)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Air quality indicators -->
+        <h2 class="section-title">Các chỉ số không khí hiện tại</h2>
+        <div class="indicators">
+            <div class="indicator-row">
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon aqi-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">AQI</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="aqi-value">1</div>
+                    </div>
+                </div>
+
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon pm10-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">PM10</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="pm10-value">9.43</div>
+                        <div class="indicator-unit">μg/m³</div>
+                    </div>
+                </div>
+
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon humidity-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">Độ ẩm</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="humidity-value">53.4</div>
+                        <div class="indicator-unit">%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="indicator-row">
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon co-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">CO Gas</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="co-value">658</div>
+                        <div class="indicator-unit">μg/m³</div>
+                    </div>
+                </div>
+
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon pm25-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">PM2.5</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="pm25-value">7.48</div>
+                        <div class="indicator-unit">μg/m³</div>
+                    </div>
+                </div>
+
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon temp-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">Nhiệt độ</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="temp-value">27.9</div>
+                        <div class="indicator-unit">°C</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="indicator-row">
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon wind-speed-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">Tốc độ gió</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="wind-speed-value">1</div>
+                        <div class="indicator-unit">m/s</div>
+                    </div>
+                </div>
+
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon wind-dir-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">Hướng gió</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="wind-dir-value">90</div>
+                        <div class="indicator-unit" id="wind-dir-text">Đông</div>
+                    </div>
+                </div>
+
+                <div class="indicator">
+                    <div class="indicator-left">
+                        <div class="indicator-icon rain-icon"></div>
+                        <div class="indicator-info">
+                            <div class="indicator-name">Lượng mưa</div>
+                        </div>
+                    </div>
+                    <div class="indicator-right">
+                        <div class="indicator-value" id="rain-value">0</div>
+                        <div class="indicator-unit">mm</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logoPhenikaa.png" alt="Phenikaa University Logo">
+                        <h3>Đại học Phenikaa</h3>
+                    </div>
+                    <p class="footer-description">
+                        Hệ thống giám sát chất lượng không khí thông minh,
+                        cung cấp dữ liệu thời gian thực để bảo vệ sức khỏe cộng đồng.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Phường Yên Nghĩa, Quận Hà Đông, Hà Nội</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>(024) 6291 8118</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>info@phenikaa-uni.edu.vn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Thông tin hệ thống</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Giới thiệu hệ thống</a></li>
+                        <li><a href="#data">Dữ liệu & Báo cáo</a></li>
+                        <li><a href="#api">API Documentation</a></li>
+                        <li><a href="#support">Hỗ trợ kỹ thuật</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/PKA.SSALAB" class="social-link">
+                            <span class="social-icon"><i class="fab fa-facebook"></i></span>
+                            Facebook
+                        </a>
+                        <a href="https://ssalab.phenikaa-uni.edu.vn/home" class="social-link">
+                            <span class="social-icon"><i class="fas fa-home"></i></span>
+                            SSA Lab
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon"><i class="fab fa-linkedin"></i></span>
+                            Linkedin
+                        </a>
+                    </div>
+                    <div class="air-quality-status">
+                        <div class="status-indicator">
+                            <span class="status-dot good"></span>
+                            <span>Hệ thống hoạt động bình thường</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Đại học Phenikaa. Tất cả quyền được bảo lưu.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Chính sách bảo mật</a>
+                        <span class="separator">|</span>
+                        <a href="#terms">Điều khoản sử dụng</a>
+                        <span class="separator">|</span>
+                        <a href="#cookies">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+    <script src="javascript/eventHandles.js"></script>
+    <script src="javascript/aqi_chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
