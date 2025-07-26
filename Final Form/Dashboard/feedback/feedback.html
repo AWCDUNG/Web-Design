@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Transport Vehicle Monitoring System Survey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="lab.jpeg" type="image/jpeg">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SYSTEM SURVEY AND EVALUATION FORM</h1>
+            <h2>System: Monitoring, Warning for Chemical Transport Vehicles and Route Planning</h2>
+            <p>Thank you for taking the time to participate in this survey. Your contributions are extremely important for us to improve and perfect our product.</p>
+        </div>
+
+        <form id="surveyForm">
+            <!-- Section 1: General Information -->
+            <div class="section">
+                <h3>Section 1: General Information</h3>
+                
+                <div class="form-group">
+                    <label>1. Full Name (Optional):</label>
+                    <input type="text" name="fullName" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>2. Which user group do you belong to?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="userType" value="driver" id="driver">
+                            <label for="driver">Driver</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="userType" value="manager" id="manager">
+                            <label for="manager">Fleet Manager / Dispatcher</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="userType" value="safety" id="safety">
+                            <label for="safety">Safety & Operations Manager</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="userType" value="tech" id="tech">
+                            <label for="tech">Technician / IT</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="userType" value="other" id="other">
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. How frequently do you use this system?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="frequency" value="daily" id="daily">
+                            <label for="daily">Daily</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="frequency" value="weekly" id="weekly">
+                            <label for="weekly">Several times a week</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="frequency" value="monthly" id="monthly">
+                            <label for="monthly">Several times a month</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="frequency" value="rarely" id="rarely">
+                            <label for="rarely">Very rarely</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: UI/UX Evaluation -->
+            <div class="section">
+                <h3>Section 2: User Interface & User Experience (UI/UX) Evaluation</h3>
+                <p><i>Please rate the following factors on a scale from 1 (Very Dissatisfied) to 5 (Very Satisfied).</i></p>
+
+                <div class="form-group">
+                    <label>1. Is the overall interface of the system (on web/app) easy to view and reasonably laid out?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="ui_overall" value="1" id="ui1">
+                            <label for="ui1">1 - Very difficult to view</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_overall" value="2" id="ui2">
+                            <label for="ui2">2 - Difficult to view</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_overall" value="3" id="ui3">
+                            <label for="ui3">3 - Normal</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_overall" value="4" id="ui4">
+                            <label for="ui4">4 - Easy to view</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_overall" value="5" id="ui5">
+                            <label for="ui5">5 - Very easy to view</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Are the icons, buttons, and functions easy to understand and find?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="ui_buttons" value="1" id="btn1">
+                            <label for="btn1">1 - Very difficult to understand</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_buttons" value="2" id="btn2">
+                            <label for="btn2">2 - Difficult to understand</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_buttons" value="3" id="btn3">
+                            <label for="btn3">3 - Normal</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_buttons" value="4" id="btn4">
+                            <label for="btn4">4 - Easy to understand</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="ui_buttons" value="5" id="btn5">
+                            <label for="btn5">5 - Very easy to understand</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. How is the system's response speed when you perform operations (such as viewing routes, retrieving data)?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="response_speed" value="1" id="speed1">
+                            <label for="speed1">1 - Very slow</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="response_speed" value="2" id="speed2">
+                            <label for="speed2">2 - Slow</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="response_speed" value="3" id="speed3">
+                            <label for="speed3">3 - Acceptable</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="response_speed" value="4" id="speed4">
+                            <label for="speed4">4 - Fast</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="response_speed" value="5" id="speed5">
+                            <label for="speed5">5 - Very fast</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>4. Is using the system on different devices (computer, phone, tablet) convenient?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="device_compatibility" value="1" id="device1">
+                            <label for="device1">1 - Very inconvenient</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="device_compatibility" value="2" id="device2">
+                            <label for="device2">2 - Inconvenient</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="device_compatibility" value="3" id="device3">
+                            <label for="device3">3 - Normal</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="device_compatibility" value="4" id="device4">
+                            <label for="device4">4 - Convenient</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="device_compatibility" value="5" id="device5">
+                            <label for="device5">5 - Very convenient</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: System Features -->
+            <div class="section">
+                <h3>Section 3: System Features Evaluation</h3>
+                <p><i>Please rate the usefulness of the following features.</i></p>
+
+                <div class="form-group">
+                    <label>1. Real-time vehicle location monitoring feature:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="realtime_tracking" value="1" id="track1">
+                            <label for="track1">Not useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="realtime_tracking" value="2" id="track2">
+                            <label for="track2">Slightly useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="realtime_tracking" value="3" id="track3">
+                            <label for="track3">Normal</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="realtime_tracking" value="4" id="track4">
+                            <label for="track4">Useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="realtime_tracking" value="5" id="track5">
+                            <label for="track5">Very useful</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Alert feature (via SMS/email/app notifications) when incidents occur (e.g., abnormal temperature/pressure, leaks, collisions):</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="alert_system" value="1" id="alert1">
+                            <label for="alert1">Not useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_system" value="2" id="alert2">
+                            <label for="alert2">Slightly useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_system" value="3" id="alert3">
+                            <label for="alert3">Normal</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_system" value="4" id="alert4">
+                            <label for="alert4">Useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_system" value="5" id="alert5">
+                            <label for="alert5">Very useful</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. How accurate and timely are the alerts?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="alert_accuracy" value="1" id="accuracy1">
+                            <label for="accuracy1">1 - Very poor</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_accuracy" value="2" id="accuracy2">
+                            <label for="accuracy2">2 - Poor</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_accuracy" value="3" id="accuracy3">
+                            <label for="accuracy3">3 - Average</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_accuracy" value="4" id="accuracy4">
+                            <label for="accuracy4">4 - Good</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="alert_accuracy" value="5" id="accuracy5">
+                            <label for="accuracy5">5 - Very good</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>4. Route suggestion and optimization feature for chemical transport vehicles:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="route_optimization" value="1" id="route1">
+                            <label for="route1">Not useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="route_optimization" value="2" id="route2">
+                            <label for="route2">Slightly useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="route_optimization" value="3" id="route3">
+                            <label for="route3">Normal</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="route_optimization" value="4" id="route4">
+                            <label for="route4">Useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="route_optimization" value="5" id="route5">
+                            <label for="route5">Very useful</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>5. Feature to review trip history, stops, and events that occurred:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="history_tracking" value="1" id="history1">
+                            <label for="history1">Not useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="history_tracking" value="2" id="history2">
+                            <label for="history2">Slightly useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="history_tracking" value="3" id="history3">
+                            <label for="history3">Normal</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="history_tracking" value="4" id="history4">
+                            <label for="history4">Useful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="history_tracking" value="5" id="history5">
+                            <label for="history5">Very useful</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>6. Does the reporting and statistics system (e.g., total distance, number of alerts, driving time) provide sufficient information you need?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="reporting" value="1" id="report1">
+                            <label for="report1">1 - Completely insufficient</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="reporting" value="2" id="report2">
+                            <label for="report2">2 - Missing a lot of information</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="reporting" value="3" id="report3">
+                            <label for="report3">3 - Relatively sufficient</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="reporting" value="4" id="report4">
+                            <label for="report4">4 - Sufficient</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="reporting" value="5" id="report5">
+                            <label for="report5">5 - Very comprehensive and detailed</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Effectiveness & Satisfaction -->
+            <div class="section">
+                <h3>Section 4: Effectiveness & Satisfaction Evaluation</h3>
+
+                <div class="form-group">
+                    <label>1. Overall, how has the system helped improve safety for chemical transportation?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="safety_improvement" value="1" id="safety1">
+                            <label for="safety1">1 - No help at all</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="safety_improvement" value="2" id="safety2">
+                            <label for="safety2">2 - Very little help</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="safety_improvement" value="3" id="safety3">
+                            <label for="safety3">3 - Some improvement</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="safety_improvement" value="4" id="safety4">
+                            <label for="safety4">4 - Very helpful</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="safety_improvement" value="5" id="safety5">
+                            <label for="safety5">5 - Extremely helpful</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Does the system help you optimize work efficiency (save time, costs, easier management)?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="efficiency" value="1" id="efficiency1">
+                            <label for="efficiency1">1 - Not at all</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="efficiency" value="2" id="efficiency2">
+                            <label for="efficiency2">2 - Low efficiency</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="efficiency" value="3" id="efficiency3">
+                            <label for="efficiency3">3 - Some improvement</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="efficiency" value="4" id="efficiency4">
+                            <label for="efficiency4">4 - Good efficiency</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="efficiency" value="5" id="efficiency5">
+                            <label for="efficiency5">5 - Very efficient</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Have you encountered any difficulties or errors during use? Please describe briefly.</label>
+                    <textarea name="difficulties" rows="4" cols="50" placeholder="Describe any difficulties or errors you have encountered..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>4. What additional features would you like the system to have or what improvements would you most like to see?</label>
+                    <textarea name="suggestions" rows="4" cols="50" placeholder="Specify desired features or improvements..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>5. Based on your experience, would you be willing to recommend this system to other transport companies?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="recommendation" value="1" id="recommend1">
+                            <label for="recommend1">Definitely not</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="recommendation" value="2" id="recommend2">
+                            <label for="recommend2">Probably not</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="recommendation" value="3" id="recommend3">
+                            <label for="recommend3">Maybe</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="recommendation" value="4" id="recommend4">
+                            <label for="recommend4">Very likely</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="recommendation" value="5" id="recommend5">
+                            <label for="recommend5">Definitely yes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit">Submit Survey</button>
+            </div>
+        </form>
+
+        <div class="thank-you">
+            <h2>THANK YOU VERY MUCH!</h2>
+            <p>Thank you for taking the time to complete this survey. Your feedback is very valuable to us.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for completing the survey!');
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+</body>
+</html>

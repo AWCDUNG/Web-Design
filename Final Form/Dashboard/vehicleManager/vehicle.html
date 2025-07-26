@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Transport Vehicle Management System</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="lab.jpeg" type="image/jpeg">
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>🚛 Chemical Transport Vehicle Management System</h1>
+        <div class="header-stats">
+            <div class="stat-item">
+                <span>Total vehicles: </span>
+                <span id="total-vehicles">30</span>
+            </div>
+            <div class="stat-item">
+                <span>In transit: </span>
+                <span id="active-vehicles">12</span>
+            </div>
+            <div class="stat-item">
+                <span>Warnings: </span>
+                <span id="warning-vehicles">3</span>
+            </div>
+            <div class="stat-item">
+                <span>Time: </span>
+                <span id="current-time"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>System Control</h3>
+            </div>
+
+            <div class="control-panel">
+                <div class="control-group">
+                    <label>Filter by device ID:</label>
+                    <select id="device-filter">
+                        <option value="">All devices</option>
+                        <option value="EEE01">EEE01</option>
+                        <option value="EEE02">EEE02</option>
+                        <option value="EEE03">EEE03</option>
+                        <option value="EEE04">EEE04</option>
+                        <option value="EEE05">EEE05</option>
+                        <option value="EEE06">EEE06</option>
+                        <option value="EEE07">EEE07</option>
+                        <option value="EEE08">EEE08</option>
+                        <option value="EEE09">EEE09</option>
+                        <option value="EEE10">EEE10</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Filter by status:</label>
+                    <select id="status-filter">
+                        <option value="">All statuses</option>
+                        <option value="In Transit">In Transit</option>
+                        <option value="Loading">Loading</option>
+                        <option value="Parked">Parked</option>
+                        <option value="Off Route">Off Route</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Filter by cargo:</label>
+                    <select id="cargo-filter">
+                        <option value="">All cargo types</option>
+                        <option value="Corrosive">Corrosive chemicals</option>
+                        <option value="Flammable">Flammable chemicals</option>
+                        <option value="Toxic">Toxic chemicals</option>
+                        <option value="Empty">Empty</option>
+                    </select>
+                </div>
+
+                <div class="control-buttons">
+                    <button id="reset-filters" class="btn btn-secondary">Reset filters</button>
+                    <button id="refresh-data" class="btn btn-primary">Refresh data</button>
+                </div>
+            </div>
+
+            <div class="vehicle-list">
+                <div class="list-header">
+                    <h4>Vehicle list (30)</h4>
+                    <div class="list-controls">
+                        <input type="text" id="search-vehicle" placeholder="Search vehicle..." class="search-input">
+                    </div>
+                </div>
+                <div id="vehicle-items" class="vehicle-items">
+                    <!-- Vehicle items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-controls">
+                <button id="center-vietnam" class="map-btn" title="View entire Vietnam">🇻🇳</button>
+            </div>
+        </div>
+        <!-- Sensor Stats Panel -->
+        <div class="sensor-panel">
+            <div class="sensor-header">
+                <h3>📊 Selected Vehicle Sensor Data</h3>
+                <span id="selected-vehicle-id">Select a vehicle to view sensor data</span>
+            </div>
+            <div class="stats-container">
+                <!-- Outdoor Temperature (DS18B20) -->
+                <div class="stat-card temperature">
+                    <div class="stat-icon">🌡️</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Temperature</div>
+                        <div class="stat-value">
+                            <div class="stat-number">27.9</div>
+                            <div class="stat-unit">°C</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Humidity (DHT22) -->
+                <div class="stat-card humidity">
+                    <div class="stat-icon">💧</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Humidity</div>
+                        <div class="stat-value">
+                            <div class="stat-number">68.8</div>
+                            <div class="stat-unit">%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PM2.5 (SDS011) -->
+                <div class="stat-card air-quality">
+                    <div class="stat-icon">🌫️</div>
+                    <div class="stat-content">
+                        <div class="stat-label">PM2.5</div>
+                        <div class="stat-value">
+                            <div class="stat-number">7.48</div>
+                            <div class="stat-unit">μg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PM10 (SDS011) -->
+                <div class="stat-card air-quality-pm10">
+                    <div class="stat-icon">💨</div>
+                    <div class="stat-content">
+                        <div class="stat-label">PM10</div>
+                        <div class="stat-value">
+                            <div class="stat-number">12.3</div>
+                            <div class="stat-unit">μg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CO Gas -->
+                <div class="stat-card co-gas">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-content">
+                        <div class="stat-label">CO Gas</div>
+                        <div class="stat-value">
+                            <div class="stat-number">658</div>
+                            <div class="stat-unit">μg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Flame Detection (IR Flame Sensor) -->
+                <div class="stat-card flame-sensor">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Flame Detected</div>
+                        <div class="stat-value">
+                            <div class="stat-number">No</div>
+                            <div class="stat-unit"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Interior Air Pressure -->
+                <div class="stat-card pressure">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Pressure</div>
+                        <div class="stat-value">
+                            <div class="stat-number">1013</div>
+                            <div class="stat-unit">hPa</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indoor Temperature (DHT22) -->
+                <!-- Speed -->
+                <div class="stat-card speed">
+                    <div class="stat-icon">🚗</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Speed</div>
+                        <div class="stat-value">
+                            <div class="stat-number">2.8</div>
+                            <div class="stat-unit">km/h</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acceleration -->
+                <div class="stat-card acceleration">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Acceleration</div>
+                        <div class="stat-value">
+                            <div class="stat-number">0.83</div>
+                            <div class="stat-unit">m/s²</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tilt Angle -->
+                <div class="stat-card tilt-angle">
+                    <div class="stat-icon">📐</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Tilt Angle</div>
+                        <div class="stat-value">
+                            <div class="stat-number">0</div>
+                            <div class="stat-unit">°</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-modal" id="statusModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Vehicle Details <span id="modal-vehicle-id"></span></h3>
+            <div id="modal-vehicle-details"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="vehicle_stats_updater.js"></script>
+    <script src="vehicle_animations.js"></script>
+</body>
+
+</html>

@@ -15,9 +15,9 @@
     <div class="container">
         <!-- Header with logo -->
         <header class="header">
-            <div class="logo"><img src="logoPhenikaa.png" alt=""></div>
+            <a href="https://phenikaa-uni.edu.vn/vi"><div class="logo"><img src="logoPhenikaa.png" alt=""></div></a>
             <h1 class="title">Đại học Phenikaa</h1>
-            <div class="logo"><img src="lab.jpeg" alt=""></div>
+            <a href="https://ssalab.phenikaa-uni.edu.vn/home"><div class="logo"><img src="lab.jpeg" alt=""></div></a>
 
         </header>
         <!-- Campus selector -->
@@ -85,6 +85,38 @@
                         <div class="scale-item very-unhealthy">Rất nguy hại</div>
                         <div class="scale-item hazardous">Nguy hiểm (301+)</div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Air quality notification -->
+        <div class="air-quality-notification">
+            <div class="notification-header">
+                <div class="status-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" fill="#4CAF50" />
+                        <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="status-text">
+                    <h3>Chất lượng không khí</h3>
+                    <span class="status-label">Tốt</span>
+                </div>
+                <div class="aqi-badge">
+                    AQI 25
+                </div>
+            </div>
+            <div class="notification-body">
+                <p>Chất lượng không khí được coi là đạt tiêu chuẩn và ô nhiễm không khí ít hoặc không có nguy cơ</p>
+            </div>
+            <div class="notification-footer">
+                <div class="location-info">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" fill="#666" />
+                        <circle cx="12" cy="10" r="3" fill="white" />
+                    </svg>
+                    <span>Thời điểm tuyệt vời để hoạt động ngoài trời</span>
                 </div>
             </div>
         </div>
@@ -300,6 +332,8 @@
     </div>
     <script src="javascript/eventHandles.js"></script>
     <script src="javascript/aqi_chart.js"></script>
+    <script src="javascript/aqi_status_updater.js"></script>
+    <script src="javascript/scroll_animation.js"></script>
     <script src="script.js"></script>
 </body>
 

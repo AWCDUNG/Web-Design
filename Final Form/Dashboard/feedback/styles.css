@@ -1,0 +1,382 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header h2 {
+    color: #3498db;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.header p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Form */
+#surveyForm {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+/* Section */
+.section {
+    padding: 30px;
+    border-bottom: 2px solid #f8f9fa;
+    position: relative;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section h3 {
+    color: #2c3e50;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #3498db;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.section > p {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 25px;
+    font-size: 1.05em;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* Input fields */
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 120px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Radio groups */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: #f8f9fa;
+}
+
+.radio-option:hover {
+    border-color: #3498db;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    accent-color: #3498db;
+    cursor: pointer;
+}
+
+.radio-option label {
+    margin: 0;
+    font-weight: 500;
+    cursor: pointer;
+    color: #2c3e50;
+    font-size: 1em;
+}
+
+.radio-option input[type="radio"]:checked + label {
+    color: #3498db;
+    font-weight: 600;
+}
+
+.radio-option:has(input[type="radio"]:checked) {
+    border-color: #3498db;
+    background: #f0f8ff;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
+}
+
+/* Submit section */
+.submit-section {
+    padding: 30px;
+    text-align: center;
+    background: #f8f9fa;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+    background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+button[type="submit"]:active {
+    transform: translateY(-1px);
+}
+
+/* Thank you section */
+.thank-you {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-top: 5px solid #27ae60;
+}
+
+.thank-you h2 {
+    color: #27ae60;
+    font-size: 2em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.thank-you p {
+    color: #7f8c8d;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header h2 {
+        font-size: 1.2em;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .section h3 {
+        font-size: 1.4em;
+    }
+
+    .radio-group {
+        gap: 8px;
+    }
+
+    .radio-option {
+        padding: 12px;
+    }
+
+    button[type="submit"] {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .header h2 {
+        font-size: 1.1em;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    textarea {
+        padding: 12px;
+    }
+
+    .radio-option {
+        padding: 10px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Animation for smooth loading */
+.container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus indicators for accessibility */
+input[type="radio"]:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+button[type="submit"]:focus {
+    outline: 2px solid #2980b9;
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}

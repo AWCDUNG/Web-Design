@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Management Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="lab.jpeg" type="image/jpeg">
+
+
+</head>
+
+<body>
+    <!-- Menu Toggle Button -->
+    <div class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">
+        <span></span>
+    </div>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar hidden" id="sidebar">
+            <div class="sidebar-header">
+                <span> Routes</span>
+                <!-- <button class="close-btn" onclick="closeSidebar()"></button> -->
+            </div>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu">
+                <div class="nav-item active" onclick="showTab('dashboard')">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="showFeedbackTab()">
+                    <span class="nav-icon">🚛</i></span>
+                    <span>Active Tankers</span>
+                </div>
+                <div class="nav-item" onclick="showTab('routes')">
+                    <span class="nav-icon">📍</span>
+                    <span>Route Monitor</span>
+                </div>
+                <div class="nav-item" onclick="openAlertsTab()">
+                    <span class="nav-icon">🎯</span>
+                    <span>Policy</span>
+                </div>
+                <div class="nav-item" onclick="showValidationTab()">
+                    <span class="nav-icon"><i class="fas fa-comment-dots"></i></span>
+                    <span>Feedback</span>
+                </div>
+                <div class="nav-item" onclick="showRoute()">
+                    <span class="nav-icon">🗺️ </span>
+                    <span>Route</span>
+                </div>
+            </div>
+
+            <!-- Route Monitor Section -->
+            <div class="route-monitor-section" id="routeMonitorSection">
+                <!-- Restricted Routes -->
+                <div class="route-section">
+                    <div class="route-header" onclick="toggleRoutes()">
+                        <span class="warning-icon">⚠️</span>
+                        <span>Restricted Routes</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="route-list" id="routeList">
+                        <div class="route-item" onclick="highlightRoute('A3D')">
+                            <span class="route-icon">⚠️</span>
+                            <span>A3D</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('A4B')">
+                            <span class="route-icon">⚠️</span>
+                            <span>A4B</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('A5B')">
+                            <span class="route-icon">⚠️</span>
+                            <span>A5B</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('A6B')">
+                            <span class="route-icon">⚠️</span>
+                            <span>A6B</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N4')">
+                            <span class="route-icon">⚠️</span>
+                            <span>N4</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('A7C')">
+                            <span class="route-icon">⚠️</span>
+                            <span>A7C</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('A8D')">
+                            <span class="route-icon">⚠️</span>
+                            <span>A8D</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('A9E')">
+                            <span class="route-icon">⚠️</span>
+                            <span>A9E</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NRHM Designated Routes -->
+                <div class="route-section">
+                    <div class="route-header" onclick="togglePreferredRoutes()">
+                        <span class="warning-icon">🛣️</span>
+                        <span>NRHM Designated Routes</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="route-list" id="preferredRouteList">
+                        <div class="route-item" onclick="highlightRoute('N1')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N1</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N2')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N2</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N3')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N3</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N5')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N5</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N6')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N6</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N7')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N7</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N8')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N8</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('N9')">
+                            <span class="route-icon">🛣️</span>
+                            <span>N9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provincial Routes -->
+                <div class="route-section">
+                    <div class="route-header" onclick="SidebarController.toggleProvincialRoutes()">
+                        <span class="warning-icon">🛞</span>
+                        <span>Provincial Routes</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="route-list" id="provincialRouteList">
+                        <div class="route-item" onclick="highlightRoute('PR101')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR101 - Hanoi-Hai Phong</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR102')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR102 - Hanoi-Thai Nguyen</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR103')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR103 - Ho Chi Minh City-Can Tho</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR104')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR104 - Ho Chi Minh City-Vung Tau</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR105')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR105 - Da Nang-Hue</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR106')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR106 - Da Nang-Quy Nhon</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR107')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR107 - Nha Trang-Da Lat</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR108')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR108 - Bac Giang - Bien Hoa</span>
+                        </div>
+                        <div class="route-item" onclick="highlightRoute('PR109')">
+                            <span class="route-icon">🛞</span>
+                            <span>PR109 - Hai Phong-Quang Ninh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Vehicle Status Card -->
+            <div class="vehicle-status">
+                <div class="vehicle-icon">🚛</div>
+                <div class="vehicle-info">
+                    <div class="vehicle-details">
+                        <div class="detail-item">4G+GPS</div>
+                        <div class="detail-item visit-counter">
+                            <span class="counter-icon">👁️</span>
+                            <span id="visitCount">1,253</span> views
+                        </div>
+                        <div class="detail-item online-status">
+                            <span class="online-dot"></span>
+                            <span id="onlineCount">5</span> online
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box safe" id="warningBox">
+                    <div class="warning-icon"></div>
+                    <div class="warning-content">
+                        <div class="warning-title" id="warningTitle">Normal</div>
+                        <div class="warning-message" id="warningMessage">All parameters are stable</div>
+                        <div class="warning-level" id="warningLevel">Level: Safe</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environmental Stats Cards -->
+            <div class="stats-container">
+
+                <div class="stat-card device-id">
+                    <div class="stat-icon">📱</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Device ID</div>
+                        <div class="stat-value">
+                            <div class="stat-number">HCM_A12</div>
+                            <div class="stat-unit"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card user-id">
+                    <div class="stat-icon">👤</div>
+                    <div class="stat-content">
+                        <div class="stat-label">User</div>
+                        <div class="stat-value">
+                            <div class="stat-number"></div>
+                            <div class="stat-unit"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card license-plate">
+                    <div class="stat-icon">🚙</div>
+                    <div class="stat-content">
+                        <div class="stat-label">License Plate</div>
+                        <div class="stat-value">
+                            <div class="stat-number">10C-868.68</div>
+                            <div class="stat-unit"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tilt Angle -->
+                <div class="stat-card tilt-angle">
+                    <div class="stat-icon">📐</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Tilt Angle</div>
+                        <div class="stat-value">
+                            <div class="stat-number">7.82</div>
+                            <div class="stat-unit">°</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Light Leak Detection -->
+                <div class="stat-card light-leak">
+                    <div class="stat-icon">🔍</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Light Leak</div>
+                        <div class="stat-value">
+                            <div class="stat-number">No</div>
+                            <div class="stat-unit"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Speed -->
+                <div class="stat-card speed">
+                    <div class="stat-icon">🚗</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Speed</div>
+                        <div class="stat-value">
+                            <div class="stat-number">73</div>
+                            <div class="stat-unit">km/h</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acceleration -->
+                <div class="stat-card acceleration">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Acceleration</div>
+                        <div class="stat-value">
+                            <div class="stat-number">1.23</div>
+                            <div class="stat-unit">m/s²</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nhiệt độ ngoài trời (DS18B20) -->
+                <div class="stat-card temperature">
+                    <div class="stat-icon">🌡️</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Temperature</div>
+                        <div class="stat-value">
+                            <div class="stat-number">27.9</div>
+                            <div class="stat-unit">°C</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Độ ẩm trong xe (DHT22) -->
+                <div class="stat-card humidity">
+                    <div class="stat-icon">💧</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Humidity</div>
+                        <div class="stat-value">
+                            <div class="stat-number">68.8</div>
+                            <div class="stat-unit">%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PM2.5 (SDS011) -->
+                <div class="stat-card air-quality">
+                    <div class="stat-icon">🌫️</div>
+                    <div class="stat-content">
+                        <div class="stat-label">PM2.5</div>
+                        <div class="stat-value">
+                            <div class="stat-number">7.48</div>
+                            <div class="stat-unit">μg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PM10 (SDS011) -->
+                <div class="stat-card air-quality-pm10">
+                    <div class="stat-icon">💨</div>
+                    <div class="stat-content">
+                        <div class="stat-label">PM10</div>
+                        <div class="stat-value">
+                            <div class="stat-number">12.3</div>
+                            <div class="stat-unit">μg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CO Gas -->
+                <div class="stat-card co-gas">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-content">
+                        <div class="stat-label">CO Gas</div>
+                        <div class="stat-value">
+                            <div class="stat-number">658</div>
+                            <div class="stat-unit">μg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phát hiện lửa (IR Flame Sensor) -->
+                <div class="stat-card flame-sensor">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Flame Detected</div>
+                        <div class="stat-value">
+                            <div class="stat-number">No</div>
+                            <div class="stat-unit"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Áp suất khí trong xe -->
+                <div class="stat-card pressure">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Pressure</div>
+                        <div class="stat-value">
+                            <div class="stat-number">1013</div>
+                            <div class="stat-unit">hPa</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- Map Container (ĐI XUỐNG DƯỚI) -->
+            <div class="map-container">
+                <div id="map"></div>
+
+                <!-- Map Controls -->
+                <div class="map-controls">
+                    <button class="control-btn active" id="restrictedBtn" onclick="toggleRestrictedRoutes()">
+                        🚫 Restricted Routes
+                    </button>
+                    <button class="control-btn active" id="vehiclesBtn" onclick="toggleVehicles()">
+                        🚛 Show Vehicles
+                    </button>
+                    <button class="control-btn" onclick="centerMap()">
+                        🎯 Center Map
+                    </button>
+                    <!-- Nút tịnh tiến đến vị trí tài xế -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Load các file JS theo thứ tự QUAN TRỌNG -->
+    <script src="JavaScript/config.js"></script>
+    <script src="JavaScript/mapController.js"></script>
+    <script src="JavaScript/routeManager.js"></script>
+    <script src="JavaScript/vehicleManager.js"></script>
+    <script src="JavaScript/sidebarController.js"></script>
+    <script src="JavaScript/eventHandler.js"></script>
+    <script src="JavaScript/app.js"></script>
+    <script src="JavaScript/weatherUpdater.js"></script>
+    <script src="JavaScript/vehicle_display.js"></script>
+    <!-- <script src="JavaScript/trafficController.js"></script> -->
+    <script src="JavaScript/warningSystem.js"></script>
+    <script src="JavaScript/vehicle_couter.js"></script>
+    <script src="JavaScript/stat_card_warning.js"></script>
+    <!-- Thứ tự import quan trọng -->
+
+    <!-- ĐÂY MỚI LÀ FILE DỰ ÁN CHÍNH  -->
+</body>
+
+</html>

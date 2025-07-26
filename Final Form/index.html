@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazardous Chemical Transport</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph Meta Tags cho link preview -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta property="og:title" content="Hazardous Chemical Transport">
+    <meta property="og:description" content="Login to manage hazardous chemical transport.">
+    <link rel="icon" href="lab.jpeg" type="image/jpeg">
+</head>
+<body>
+    <!-- Thêm counter hiển thị ở góc phải trên -->
+    <div class="visit-counter" style="position: fixed; top: 20px; right: 20px; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 14px; color: #333; z-index: 1000;">
+        <div>Lượt truy cập: <span id="visit-count">0</span></div>
+    </div>
+
+    <div class="login-wrapper">
+        <form action="">
+            <h2>Login</h2>
+            <div class="input-field">
+                <input type="text" required>
+                <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" required>
+                <label>Enter your password</label>
+            </div>
+            <div class="password-option">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Remember me</p>
+                </label>
+                <a href="#">Forgot password</a>
+            </div>
+            <button type="submit">Login</button>
+            <div class="account-option">
+                <p>Don't have an account <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Routing System</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="lab.jpeg" type="image/jpeg">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 Vehicle Routing System</h1>
+            <p class="subtitle">Find the optimal route for your vehicle</p>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="section">
+                    <h2>📍 Route Planning</h2>
+                    
+                    <div class="input-group">
+                        <label for="vehicleSelect">Select Vehicle:</label>
+                        <select id="vehicleSelect" class="select-input">
+                            <option value="">Choose a vehicle...</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="destinationSearch">Search Destination:</label>
+                        <div class="search-container">
+                            <input type="text" id="destinationSearch" class="search-input" 
+                                   placeholder="Enter address, street name, building...">
+                            <button onclick="searchDestination()" class="search-btn">
+                                🔍 Search
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="searchResults" class="search-results" style="display: none;">
+                        <div class="input-group">
+                            <label for="destinationSelect">Select Destination:</label>
+                            <select id="destinationSelect" class="select-input" onchange="selectDestination()">
+                                <option value="">Choose a destination...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="selectedDestination" class="selected-destination" style="display: none;">
+                        <div class="destination-info">
+                            <h3>🎯 Selected Destination</h3>
+                            <p><strong>Name:</strong> <span id="selectedDestinationName"></span></p>
+                            <p><strong>Coordinates:</strong> <span id="selectedDestinationCoords"></span></p>
+                        </div>
+                        <button onclick="calculateRoute()" class="calculate-btn">
+                            🧭 Calculate Route
+                        </button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>📊 Routing Result</h2>
+                    <div id="routeResult" class="route-result">
+                        <p class="no-route">No route has been calculated yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <h2>🗺️ Route Map</h2>
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Searching...</p>
+    </div>
+    
+
+    <script src="script.js"></script>
+    <!-- <script src="test.js"></script> -->
+    <script src="ulis.js"></script>
+    <script src="obstacles.js"></script>
+
+</body>
+</html>
