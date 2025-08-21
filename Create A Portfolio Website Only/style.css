@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: all .6s ease;
+}
+
+.navbar ul li.active a,
+.navbar ul li:hover a {
+    color: #7cf03d;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+
+}
+
+.home-info h1 {
+    font-size: 55px;
+}
+
+.text-typing span {
+    position: relative;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 500
+}
+
+.text-typing span::before {
+    content: "Sofware Develope";
+    color: transparent;
+    -webkit-text-stroke: .7px #7cf03d;
+    animation: words 20s infinite;
+}
+
+.text-typing span::after {
+    content: "";
+    position: absolute;
+    width: calc(100% +8px);
+    height: 100%;
+    border-left: 3px solid #000;
+    right: -8px;
+    animation: cursor 0.6s infinite;
+}
+
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: flex;
+    padding: 15px;
+    width: 230px;
+    justify-content: center;
+    background: #7cf03d;
+    box-shadow: 0 4px 30px #29e9bc;
+    border-radius: 40px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.5s ease;
+    border: 1px solid #7cf03d;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: transparent;
+    color: #fff;
+}
+
+.home-info .btn-sci .sci {
+    margin-left: 20px;
+    display: flex;
+
+}
+
+.sci a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #7cf03d;
+    transition: all 0.6s ease;
+}
+
+.sci a:hover {
+    box-shadow: 0 4px 30px #29e9bc;
+    transform: scale(1.1);
+    background: #7cf03d;
+    color: #1f242d;
+}
+
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, transparent, #7cf03d);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    /* Đảm bảo khung ảnh tròn */
+}
+
+.home-img .img-box .img-item img {
+    height: 100%;
+    object-fit: cover;
+    /* Đảm bảo hình ảnh nằm gọn trong khung ảnh */
+    border-radius: 50%;
+    /* Đảm bảo hình ảnh tròn */
+    position: absolute;
+    top: 30px;
+    display: block;
+    width: 85%;
+    mix-blend-mode: lighten;
+}
+.home-img .img-box:hover{
+    transform: scale(1.1);
+}
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes rotate-border {
+
+    /* Sửa lỗi chính tả ở đây */
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes cursor {
+    to {
+        border-left: 3px solid #29e9bc;
+    }
+}
+
+@keyframes words {
+
+    0%,20% {
+        content: "Sofware Develope";
+    }
+
+    21%,40% {
+        content: "UI/UX Design";
+    }
+
+    41%,60% {
+        content: "Content Creator";
+    }
+
+    61%,80% {
+        content: "Streamer";
+    }
+
+    81%,100% {
+        content: "Freelancer"
+    }
+}
